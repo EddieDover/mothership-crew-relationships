@@ -1,5 +1,5 @@
 // Mothership Crew Relationships Module
-import { RELATIONSHIP_DATA } from "./relationships.js";
+import { RELATIONSHIP_DATA, RELATIONSHIP_DATA_VERSION } from "./relationships.js";
 
 class CrewRelationships {
   static MODULE_ID = "mothership-crew-relationships";
@@ -26,6 +26,14 @@ class CrewRelationships {
       type: Object,
       default: {},
     });
+
+    // eslint-disable-next-line no-undef
+    game.settings.register(this.MODULE_ID, "relationshipDataVersion", {
+      scope: "world",
+      config: false,
+      type: String,
+      default: "",
+    });
   }
 
   static async ready() {
@@ -36,16 +44,22 @@ class CrewRelationships {
   }
 
   static async ensureRelationshipTable() {
-    // Check if we have relationship data
+    // Check if we need to update relationship data
     // eslint-disable-next-line no-undef
-    const relationshipData = game.settings.get(
+    const storedVersion = game.settings.get(
       this.MODULE_ID,
-      "relationshipData"
+      "relationshipDataVersion"
     );
 
-    if (!relationshipData || Object.keys(relationshipData).length === 0) {
-      // Create the default relationship data
+    if (storedVersion !== RELATIONSHIP_DATA_VERSION) {
+      // Create or update the relationship data
       await this.createDefaultRelationshipTable();
+      // eslint-disable-next-line no-undef
+      await game.settings.set(
+        this.MODULE_ID,
+        "relationshipDataVersion",
+        RELATIONSHIP_DATA_VERSION
+      );
     }
   }
 
