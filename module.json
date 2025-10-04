@@ -1,0 +1,32 @@
+{
+  "id": "mothership-crew-relationships",
+  "title": "Mothership Crew Relationships",
+  "version": "1.0.0",
+  "compatibility": {
+    "minimum": "13",
+    "verified": "13"
+  },
+  "authors": [
+    {
+      "name": "Eddie Dover",
+      "email": "ed@eddiedover.dev",
+      "discord": "EddieDover",
+      "flags": {}
+    }
+  ],
+  "esmodules": ["scripts/crew-relationships.js"],
+  "styles": ["styles/crew-relationships.css"],
+  "relationships": {
+    "systems": [
+      {
+        "id": "mosh",
+        "type": "system",
+        "compatibility": {
+          "minimum": "0.6.0",
+          "verified": "0.6.0"
+        }
+      }
+    ]
+  },
+  "description": "Adds a crew relationships system to Mothership characters. Allows the GM to roll for relationships between crew members and track them on the character sheet."
+}

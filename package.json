@@ -1,0 +1,27 @@
+{
+  "name": "mothership-crew-relationships",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Adds a crew relationship system to Mothership characters",
+  "homepage": "https://github.com/EddieDover/mothership-crew-relationships#readme",
+  "bugs": {
+    "url": "https://github.com/EddieDover/mothership-crew-relationships/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EddieDover/mothership-crew-relationships.git"
+  },
+  "license": "ISC",
+  "author": "Eddie Dover <ed@eddiedover.dev>",
+  "type": "commonjs",
+  "main": "scripts/crew-relationships.js",
+  "scripts": {
+    "build": "rm -rf dist && mkdir dist && cp -r styles dist/styles && cp -r scripts dist/scripts && cp module.json dist/module.json",
+    "package": "npm run build && cd dist && zip -r ../mothership-crew-relationships.zip . && cd .."
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.37.0",
+    "eslint": "^9.37.0",
+    "globals": "^16.4.0"
+  }
+}

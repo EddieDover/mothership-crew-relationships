@@ -1,0 +1,125 @@
+.mosh .relationships-tab {
+  background: #111;
+  color: white;
+  padding: 1rem;
+  height: 100%;
+  overflow-y: auto;
+}
+
+.mosh .crew-relationships-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.mosh .relationships-header {
+  padding: 1rem;
+  background: #000;
+  border: 2px solid white;
+  border-radius: 0.5rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.mosh .relationships-header h2 {
+  margin: 0;
+  color: white;
+  font-family: "Roboto", sans-serif;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.mosh .relationships-empty {
+  text-align: center;
+  padding: 3rem;
+  background: #000;
+  border: 2px solid #333;
+  border-radius: 0.5rem;
+}
+
+.mosh .relationships-empty p {
+  color: #ccc;
+  font-size: 1.1rem;
+  margin: 0.5rem 0;
+}
+
+.mosh .relationships-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.mosh .relationship-item {
+  background: #000;
+  border: 2px solid white;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  display: grid;
+  grid-template-columns: 200px 1fr auto;
+  gap: 1rem;
+  align-items: center;
+  transition: all 0.2s;
+}
+
+.mosh .relationship-item:hover {
+  background: #1a1a1a;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.mosh .relationship-item.no-relationship {
+  border-color: #666;
+}
+
+.mosh .relationship-name {
+  color: white;
+  font-weight: bold;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  border-right: 2px solid #333;
+  padding-right: 1rem;
+}
+
+.mosh .relationship-description {
+  color: #ddd;
+  font-style: italic;
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+}
+
+.mosh .relationship-description.unrolled {
+  color: #666;
+}
+
+.mosh .roll-single-relationship {
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  background: #111;
+  color: white;
+  border: 2px solid white;
+  border-radius: 0.3rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  white-space: nowrap;
+}
+
+.mosh .roll-single-relationship:hover {
+  background: #202020;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  text-shadow: 0 0 10px white;
+}
+
+/* Make sure the tab is hidden by default */
+.mosh .tab.relationships-tab:not(.active) {
+  display: none;
+}
+
+.mosh .tab.relationships-tab.active {
+  display: block;
+}
