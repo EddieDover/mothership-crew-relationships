@@ -46,14 +46,3 @@ Players can view their character's relationships on the "Relationships" tab of t
 6. **History** - Past connections and experiences
 7. **Conflict** - Tensions and rivalries
 8. **Family & Kin** - Blood relations and family ties
-
-## Credits
-
-**Author:** Eddie Dover
-
-- Email: ed@eddiedover.dev
-- Discord: EddieDover
-
-## License
-
-This module is provided as-is for use with Foundry VTT and the Mothership RPG system.
