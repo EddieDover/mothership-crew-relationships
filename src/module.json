@@ -1,0 +1,54 @@
+{
+  "id": "mothership-crew-relationships",
+  "title": "Mothership Crew Relationships",
+  "description": "Adds a crew relationships system to Mothership characters. Allows the GM to roll for relationships between crew members and track them on the character sheet.",
+  "url": "https://github.com/EddieDover/mothership-crew-relationships",
+  "bugs": "https://github.com/EddieDover/mothership-crew-relationships/issues",
+  "changelog": "https://github.com/EddieDover/mothership-crew-relationships/releases",
+  "manifest": "https://github.com/EddieDover/mothership-crew-relationships/releases/latest/download/module.json",
+  "download": "https://github.com/EddieDover/mothership-crew-relationships/releases/latest/download/module.zip",
+  "license": "https://github.com/EddieDover/mothership-crew-relationships/raw/main/LICENSE",
+  "readme": "https://github.com/EddieDover/mothership-crew-relationships/raw/main/README.md",
+  "flags": {
+    "allowBugReporter": true
+  },
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json"
+    },
+    {
+      "lang": "es",
+      "name": "Spanish",
+      "path": "lang/es.json"
+    }
+  ],
+  "version": "1.0.0",
+  "compatibility": {
+    "minimum": "13",
+    "verified": "13"
+  },
+  "authors": [
+    {
+      "name": "Eddie Dover",
+      "email": "ed@eddiedover.dev",
+      "discord": "EddieDover",
+      "flags": {}
+    }
+  ],
+  "esmodules": ["scripts/crew-relationships.js"],
+  "styles": ["styles/crew-relationships.css"],
+  "relationships": {
+    "systems": [
+      {
+        "id": "mosh",
+        "type": "system",
+        "compatibility": {
+          "minimum": "0.6.0",
+          "verified": "0.6.0"
+        }
+      }
+    ]
+  }
+}
