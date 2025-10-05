@@ -8,6 +8,8 @@ A Foundry VTT module that adds a crew relationships system to Mothership charact
 - **Relationships Tab**: Adds a dedicated "Relationships" tab to Mothership character sheets
 - **8 Relationship Categories**: Companions, Professional, Romantic, Obligation & Debt, Shared Secrets, History, Conflict, and Family & Kin
 - **80 Unique Relationships**: 10 specific relationships per category.
+- **Custom Relationships**: Don't like the built-in relationshps? Edit them and write your own!
+- **Relationship Map Viewer**: A button in the token section allows you to view a relationship web.
 
 ## Requirements
 
@@ -46,6 +48,13 @@ Players can view their character's relationships on the "Relationships" tab of t
 6. **Ambivalent** - Couldn't care less
 7. **Shared Trauma** - Experienced horrifying events
 8. **Unlikely Bond** - Differing attitudes or lifestyles
+
+
+## Screenshots
+
+<img width="823" height="457" alt="image" src="https://github.com/user-attachments/assets/68fa73ab-d1e0-4c35-86fd-da501a9915d0" />
+
+<img width="926" height="715" alt="image" src="https://github.com/user-attachments/assets/9849af5b-11b6-4d9f-b46c-e55168984f82" />
 
 ## Support
 
