@@ -38,11 +38,13 @@ Players can view their character's relationships on the "Relationships" tab of t
 
 ## Relationship Categories
 
+
+
 1. **Companions** - Close bonds and friendships
 2. **Professional** - Work-related connections
 3. **Romantic** - Romantic entanglements
 4. **Obligation & Debt** - Favors owed and life debts
-5. **Shared Secrets** - Hidden knowledge between characters
-6. **History** - Past connections and experiences
-7. **Conflict** - Tensions and rivalries
-8. **Family & Kin** - Blood relations and family ties
+5. **Rivalry** - Various degress of animosity
+6. **Ambivalent** - Couldn't care less
+7. **Shared Trauma** - Experienced horrifying events
+8. **Unlikely Bond** - Differing attitudes or lifestyles
