@@ -1,6 +1,6 @@
 import js from "@eslint/js";
-import globals from "globals";
 import prettier from "eslint-plugin-prettier/recommended";
+import globals from "globals";
 
 export default [
   js.configs.recommended,
@@ -29,6 +29,7 @@ export default [
     },
     rules: {
       "no-multiple-empty-lines": ["error", { max: 1, maxEOF: 0, maxBOF: 0 }],
+      "linebreak-style": ["off"],
     },
   },
   {

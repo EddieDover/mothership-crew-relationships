@@ -24,11 +24,11 @@ class CrewRelationships {
       ui.notifications.warn(game.i18n.localize("NOTIFICATIONS.OnlyGMCanView"));
       return;
     }
-    if (!relationshipViewerInstance) {
+    if (relationshipViewerInstance?.rendered) {
+      relationshipViewerInstance.close();
+    } else {
       relationshipViewerInstance = new RelationshipViewer();
       relationshipViewerInstance.render(true);
-    } else {
-      relationshipViewerInstance.bringToFront();
     }
   }
 
