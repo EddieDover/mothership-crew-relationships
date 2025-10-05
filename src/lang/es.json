@@ -1,11 +1,11 @@
 {
   "MODULE": {
-    "Name": "Mothership Crew Relationships",
-    "Initializing": "Mothership Crew Relationships | Initializing",
-    "Ready": "Mothership Crew Relationships | Ready"
+    "Name": "Mothership Relaciones de la Tripulación",
+    "Initializing": "Mothership Relaciones de la Tripulación | Inicializando",
+    "Ready": "Mothership Relaciones de la Tripulación | Listo"
   },
   "NOTIFICATIONS": {
-    "OnlyGMCanRoll": "Only the GM can roll relationships."
+    "OnlyGMCanRoll": "Solo el DJ puede tirar las relaciones."
   },
   "UI": {
     "Relationships": "Relaciones",
@@ -20,8 +20,8 @@
     "RelationshipRoll": "Tirada de Relación (1d10):"
   },
   "WARNINGS": {
-    "TabNavigationNotFound": "Crew Relationships: Could not find tab navigation",
-    "SheetBodyNotFound": "Crew Relationships: Could not find sheet body"
+    "TabNavigationNotFound": "Relaciones de la Tripulación: No se pudo encontrar la navegación de pestañas",
+    "SheetBodyNotFound": "Relaciones de la Tripulación: No se pudo encontrar el cuerpo de la hoja"
   },
   "RELATIONSHIPS": {
     "Categories": {
@@ -35,100 +35,100 @@
       "8": "Vínculo Improbable"
     },
     "1": {
-      "0": "They have been through hell together before.",
-      "1": "They are close friends and confidants.",
-      "2": "They have similar hobbies or interests.",
-      "3": "They have an unspoken code of mutual protection.",
-      "4": "One is trying to corrupt the other.",
-      "5": "They trust each other with their lives.",
-      "6": "They serve as a moral compass for the other.",
-      "7": "They are thick as thieves.",
-      "8": "One reminds the other of a lost friend or family member.",
-      "9": "They have a pact to get back to civilization together, no matter what."
+      "0": "Han pasado por el infierno juntos antes.",
+      "1": "Son amigos cercanos y confidentes.",
+      "2": "Tienen pasatiempos o intereses similares.",
+      "3": "Tienen un código tácito de protección mutua.",
+      "4": "Uno está intentando corromper al otro.",
+      "5": "Confían el uno en el otro con sus vidas.",
+      "6": "Sirven como brújula moral para el otro.",
+      "7": "Son uña y carne.",
+      "8": "Uno le recuerda al otro a un amigo perdido o familiar.",
+      "9": "Tienen un pacto de regresar a la civilización juntos, pase lo que pase."
     },
     "2": {
-      "0": "They served together in the same unit or corporation.",
-      "1": "One is a mentor to the other.",
-      "2": "They cover for the other's mistakes.",
-      "3": "One got the job the other wanted.",
-      "4": "They are professional rivals in direct competition.",
-      "5": "One is clearly better at the job, and it's a sore point.",
-      "6": "They share complaints about management or the current assignment.",
-      "7": "They collaborated on a successful—and profitable—project.",
-      "8": "Their methods and philosophies clash constantly.",
-      "9": "They have a shared history of failing together."
+      "0": "Sirvieron juntos en la misma unidad o corporación.",
+      "1": "Uno es mentor del otro.",
+      "2": "Cubren los errores del otro.",
+      "3": "Uno consiguió el trabajo que el otro quería.",
+      "4": "Son rivales profesionales en competencia directa.",
+      "5": "Uno es claramente mejor en el trabajo, y es un punto sensible.",
+      "6": "Comparten quejas sobre la administración o la asignación actual.",
+      "7": "Colaboraron en un proyecto exitoso y rentable.",
+      "8": "Sus métodos y filosofías chocan constantemente.",
+      "9": "Tienen un historial compartido de fracasos."
     },
     "3": {
-      "0": "They are secretly involved with each other.",
-      "1": "They are in a relationship together.",
-      "2": "They are former lovers, and it's still awkward.",
-      "3": "They had a bad breakup in their past.",
-      "4": "There is an unspoken attraction between them.",
-      "5": "They have a friends with benefits arrangement.",
-      "6": "They're stuck in a will-they-won't-they dynamic.",
-      "7": "They hooked up once, and it's complicated.",
-      "8": "One is trying to win the other back.",
-      "9": "They are trying to keep things strictly professional."
+      "0": "Están involucrados secretamente entre sí.",
+      "1": "Están en una relación juntos.",
+      "2": "Son ex amantes, y todavía es incómodo.",
+      "3": "Tuvieron una mala ruptura en su pasado.",
+      "4": "Hay una atracción tácita entre ellos.",
+      "5": "Tienen un acuerdo de amigos con beneficios.",
+      "6": "Están atrapados en una dinámica de sí-o-no.",
+      "7": "Se liaron una vez, y es complicado.",
+      "8": "Uno está intentando recuperar al otro.",
+      "9": "Están intentando mantener las cosas estrictamente profesionales."
     },
     "4": {
-      "0": "One saved the other's life, creating a life debt.",
-      "1": "One knows a deeply damaging secret about the other.",
-      "2": "One is blackmailing the other.",
-      "3": "They owe the same dangerous people or corporation money.",
-      "4": "One took the fall for the other's mistake or crime.",
-      "5": "There is an unresolved debt between them.",
-      "6": "They are bound by a past betrayal.",
-      "7": "One helped the other escape the law.",
-      "8": "They are caught in the same conspiracy.",
-      "9": "There is a major unspoken obligation between them."
+      "0": "Uno salvó la vida del otro, creando una deuda de vida.",
+      "1": "Uno conoce un secreto profundamente dañino sobre el otro.",
+      "2": "Uno está chantajeando al otro.",
+      "3": "Ambos le deben dinero a las mismas personas peligrosas o corporación.",
+      "4": "Uno cargó con la culpa por el error o crimen del otro.",
+      "5": "Hay una deuda sin resolver entre ellos.",
+      "6": "Están unidos por una traición pasada.",
+      "7": "Uno ayudó al otro a escapar de la ley.",
+      "8": "Están atrapados en la misma conspiración.",
+      "9": "Hay una obligación importante no hablada entre ellos."
     },
     "5": {
-      "0": "They have a begrudging mutual respect for each other.",
-      "1": "They are bitter enemies with a shared history.",
-      "2": "They are former friends turned rivals.",
-      "3": "They are in a friendly competition with each other.",
-      "4": "One is a one-sided rival, but the other is oblivious.",
-      "5": "They want what the other has.",
-      "6": "They compete over nearly everything.",
-      "7": "They are from opposing factions or organizations.",
-      "8": "They are forced to work together despite their animosity.",
-      "9": "One blames the other for a personal loss."
+      "0": "Tienen un respeto mutuo a regañadientes.",
+      "1": "Son enemigos acérrimos con un historial compartido.",
+      "2": "Son ex amigos convertidos en rivales.",
+      "3": "Están en una competencia amistosa.",
+      "4": "Uno es un rival unilateral, pero el otro está ajeno.",
+      "5": "Quieren lo que el otro tiene.",
+      "6": "Compiten en casi todo.",
+      "7": "Son de facciones u organizaciones opuestas.",
+      "8": "Están obligados a trabajar juntos a pesar de su animosidad.",
+      "9": "Uno culpa al otro por una pérdida personal."
     },
     "6": {
-      "0": "They have never really talked much, but are now stuck together.",
-      "1": "There is mutual indifference toward them.",
-      "2": "They run in different social circles, even on this ship.",
-      "3": "They know of each other, but that's it.",
-      "4": "One is actively avoiding the other.",
-      "5": "Something unspoken makes them awkward around each other.",
-      "6": "Their communication is stilted and formal.",
-      "7": "One is a minor celebrity to the other, but they don't know it.",
-      "8": "They have nothing in common to bond over.",
-      "9": "They get the feeling they've met before, but can't place where."
+      "0": "Nunca han hablado mucho, pero ahora están atrapados juntos.",
+      "1": "Hay indiferencia mutua entre ellos.",
+      "2": "Se mueven en círculos sociales diferentes, incluso en esta nave.",
+      "3": "Se conocen, pero eso es todo.",
+      "4": "Uno está evitando activamente al otro.",
+      "5": "Algo no dicho los hace sentir incómodos entre sí.",
+      "6": "Su comunicación es forzada y formal.",
+      "7": "Uno es una celebridad menor para el otro, pero no lo saben.",
+      "8": "No tienen nada en común para crear un vínculo.",
+      "9": "Tienen la sensación de haberse conocido antes, pero no recuerdan dónde."
     },
     "7": {
-      "0": "They are the only survivors of a past disaster.",
-      "1": "They both witnessed something they shouldn't have.",
-      "2": "One saved the other from a horrific monster.",
-      "3": "They survived the same corporate experiment.",
-      "4": "They share the memory of a crewmate's death.",
-      "5": "They were both part of a failed mission with a high body count.",
-      "6": "They are bonded by a terrifying encounter from their past.",
-      "7": "They both suffer from a recurring nightmare from a shared event.",
-      "8": "One knows the other's most shameful secret.",
-      "9": "They are both running from the same past mistake."
+      "0": "Son los únicos supervivientes de un desastre pasado.",
+      "1": "Ambos presenciaron algo que no deberían haber visto.",
+      "2": "Uno salvó al otro de un monstruo horrible.",
+      "3": "Sobrevivieron al mismo experimento corporativo.",
+      "4": "Comparten el recuerdo de la muerte de un compañero de tripulación.",
+      "5": "Ambos fueron parte de una misión fallida con muchas bajas.",
+      "6": "Están unidos por un encuentro aterrador de su pasado.",
+      "7": "Ambos sufren de una pesadilla recurrente de un evento compartido.",
+      "8": "Uno conoce el secreto más vergonzoso del otro.",
+      "9": "Ambos están escapando del mismo error pasado."
     },
     "8": {
-      "0": "One comes from privilege, the other from poverty.",
-      "1": "They are two vastly different people who found a mutual interest.",
-      "2": "One is the other's hero, but they don't know it.",
-      "3": "They are both hiding a secret from the rest of the crew.",
-      "4": "They constantly get on each other's nerves, but they work well together.",
-      "5": "They were rivals, but have since gained respect for one another.",
-      "6": "One is a jaded veteran, the other a naive rookie.",
-      "7": "They are united by a common enemy.",
-      "8": "They are the only ones who can perform a specific task together.",
-      "9": "One is the other's confidant for a secret they are both keeping."
+      "0": "Uno viene de privilegio, el otro de pobreza.",
+      "1": "Son dos personas muy diferentes que encontraron un interés mutuo.",
+      "2": "Uno es el héroe del otro, pero no lo sabe.",
+      "3": "Ambos están ocultando un secreto al resto de la tripulación.",
+      "4": "Constantemente se ponen de los nervios, pero trabajan bien juntos.",
+      "5": "Eran rivales, pero desde entonces han ganado respeto mutuo.",
+      "6": "Uno es un veterano hastiado, el otro un novato ingenuo.",
+      "7": "Están unidos por un enemigo común.",
+      "8": "Son los únicos que pueden realizar una tarea específica juntos.",
+      "9": "Uno es el confidente del otro para un secreto que ambos guardan."
     }
   }
 }
