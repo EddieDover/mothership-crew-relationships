@@ -5,7 +5,9 @@
     "Ready": "Mothership Crew Relationships | Ready"
   },
   "NOTIFICATIONS": {
-    "OnlyGMCanRoll": "Only the GM can roll relationships."
+    "OnlyGMCanRoll": "Only the GM can roll relationships.",
+    "OnlyGMCanEdit": "Only the GM can edit relationships.",
+    "OnlyGMCanView": "Only the GM can view the relationship web."
   },
   "UI": {
     "Relationships": "Relationships",
@@ -16,8 +18,17 @@
     "NoRelationship": "No relationship",
     "ReRoll": "Re-roll",
     "Roll": "Roll",
+    "Edit": "Edit",
+    "Save": "Save",
+    "Cancel": "Cancel",
+    "EditRelationshipTitle": "Edit Relationship: {actor1} & {actor2}",
+    "RelationshipText": "Relationship",
     "CategoryRoll": "Category Roll (1d8):",
-    "RelationshipRoll": "Relationship Roll (1d10):"
+    "RelationshipRoll": "Relationship Roll (1d10):",
+    "RelationshipViewer": "Crew Relationship Web",
+    "ViewRelationships": "View Crew Relationships",
+    "ViewerLegendNodes": "Characters - Click to open sheet",
+    "ViewerLegendEdges": "Relationships - Hover to view"
   },
   "WARNINGS": {
     "TabNavigationNotFound": "Crew Relationships: Could not find tab navigation",

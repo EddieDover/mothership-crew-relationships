@@ -5,7 +5,9 @@
     "Ready": "Mothership Relaciones de la Tripulación | Listo"
   },
   "NOTIFICATIONS": {
-    "OnlyGMCanRoll": "Solo el DJ puede tirar las relaciones."
+    "OnlyGMCanRoll": "Solo el DJ puede tirar las relaciones.",
+    "OnlyGMCanEdit": "Solo el DJ puede editar las relaciones.",
+    "OnlyGMCanView": "Solo el DJ puede ver la red de relaciones."
   },
   "UI": {
     "Relationships": "Relaciones",
@@ -16,8 +18,17 @@
     "NoRelationship": "Sin relación",
     "ReRoll": "Volver a tirar",
     "Roll": "Tirar",
+    "Edit": "Editar",
+    "Save": "Guardar",
+    "Cancel": "Cancelar",
+    "EditRelationshipTitle": "Editar Relación: {actor1} y {actor2}",
+    "RelationshipText": "Relación",
     "CategoryRoll": "Tirada de Categoría (1d8):",
-    "RelationshipRoll": "Tirada de Relación (1d10):"
+    "RelationshipRoll": "Tirada de Relación (1d10):",
+    "RelationshipViewer": "Red de Relaciones de la Tripulación",
+    "ViewRelationships": "Ver Relaciones de la Tripulación",
+    "ViewerLegendNodes": "Personajes - Clic para abrir hoja",
+    "ViewerLegendEdges": "Relaciones - Pasar el ratón para ver"
   },
   "WARNINGS": {
     "TabNavigationNotFound": "Relaciones de la Tripulación: No se pudo encontrar la navegación de pestañas",
