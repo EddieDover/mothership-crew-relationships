@@ -1,8 +1,12 @@
 // Mothership Crew Relationships Module
+import { RelationshipViewer } from "./relationship-viewer.js";
 import {
   createDiceRollChatMessage,
   getLocalizedRelationshipData,
 } from "./utils.js";
+
+let relationshipViewerInstance = null;
+
 class CrewRelationships {
   static MODULE_ID = "mothership-crew-relationships";
   static RELATIONSHIP_TABLE_NAME = "Crew Relationships";
@@ -13,6 +17,19 @@ class CrewRelationships {
 
   static async ready() {
     console.log(game.i18n.localize("MODULE.Ready"));
+  }
+
+  static openRelationshipViewer() {
+    if (!game.user.isGM) {
+      ui.notifications.warn(game.i18n.localize("NOTIFICATIONS.OnlyGMCanView"));
+      return;
+    }
+    if (!relationshipViewerInstance) {
+      relationshipViewerInstance = new RelationshipViewer();
+      relationshipViewerInstance.render(true);
+    } else {
+      relationshipViewerInstance.bringToFront();
+    }
   }
 
   static async rollRelationshipForActor(actor, targetActor) {
@@ -114,6 +131,22 @@ class CrewRelationships {
 Hooks.once("init", () => CrewRelationships.initialize());
 
 Hooks.once("ready", () => CrewRelationships.ready());
+
+// Add scene control button for GMs
+Hooks.on("getSceneControlButtons", (controls) => {
+  if (!game.user.isGM) return;
+
+  const button = {
+    name: "relationship-viewer",
+    title: game.i18n.localize("UI.ViewRelationships"),
+    icon: "fas fa-project-diagram",
+    visible: true,
+    button: true,
+    onChange: () => CrewRelationships.openRelationshipViewer(),
+  };
+
+  controls.tokens.tools["relationship-viewer"] = button;
+});
 
 // Hook into actor sheet rendering to add relationships tab
 // eslint-disable-next-line no-unused-vars
@@ -339,3 +372,4 @@ Hooks.on("renderMothershipActorSheet", async (app, html, data) => {
 
 // Export for use in macros
 window.CrewRelationships = CrewRelationships;
+window.RelationshipViewer = RelationshipViewer;
