@@ -4,15 +4,21 @@
   "version": "1.1.1",
   "description": "Adds a crew relationship system to Mothership characters",
   "homepage": "https://github.com/EddieDover/mothership-crew-relationships#readme",
+  "url": "https://github.com/EddieDover/mothership-crew-relationships",
   "bugs": {
     "url": "https://github.com/EddieDover/mothership-crew-relationships/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/EddieDover/mothership-crew-relationships.git"
+    "url": "https://github.com/EddieDover/mothership-crew-relationships"
   },
   "license": "MIT",
-  "author": "Eddie Dover <ed@eddiedover.dev>",
+  "author": {
+    "name": "Eddie Dover",
+    "email": "ed@eddiedover.dev",
+    "discord": "EddieDover",
+    "flags": {}
+  },
   "type": "module",
   "main": "scripts/crew-relationships.js",
   "scripts": {
@@ -21,7 +27,8 @@
     "release": "commit-and-tag-version --sign",
     "release:dry": "commit-and-tag-version --dry-run",
     "test": "cross-env NODE_OPTIONS=--experimental-vm-modules jest --coverage",
-    "test:branch": "cross-env NODE_OPTIONS=--experimental-vm-modules jest --coverage  --changedSince=master"
+    "test:branch": "cross-env NODE_OPTIONS=--experimental-vm-modules jest --coverage  --changedSince=master",
+    "release:upcoming": "commit-and-tag-version --dry-run --silent > UPCOMING_CHANGELOG.md"
   },
   "devDependencies": {
     "@eslint/js": "^9.37.0",
