@@ -1,107 +1,32 @@
 // Mothership Crew Relationships Module
-import { RELATIONSHIP_DATA, RELATIONSHIP_DATA_VERSION } from "./relationships.js";
-
+import {
+  createDiceRollChatMessage,
+  getLocalizedRelationshipData,
+} from "./utils.js";
 class CrewRelationships {
   static MODULE_ID = "mothership-crew-relationships";
   static RELATIONSHIP_TABLE_NAME = "Crew Relationships";
 
   static async initialize() {
-    console.log("Mothership Crew Relationships | Initializing");
-
-    // Register settings
-    // eslint-disable-next-line no-undef
-    game.settings.register(this.MODULE_ID, "relationshipTableId", {
-      name: "Relationship Roll Table ID",
-      hint: "The ID of the roll table to use for relationships",
-      scope: "world",
-      config: false,
-      type: String,
-      default: "",
-    });
-
-    // eslint-disable-next-line no-undef
-    game.settings.register(this.MODULE_ID, "relationshipData", {
-      scope: "world",
-      config: false,
-      type: Object,
-      default: {},
-    });
-
-    // eslint-disable-next-line no-undef
-    game.settings.register(this.MODULE_ID, "relationshipDataVersion", {
-      scope: "world",
-      config: false,
-      type: String,
-      default: "",
-    });
+    console.log(game.i18n.localize("MODULE.Initializing"));
   }
 
   static async ready() {
-    console.log("Mothership Crew Relationships | Ready");
-
-    // Create default relationship table if it doesn't exist
-    await this.ensureRelationshipTable();
-  }
-
-  static async ensureRelationshipTable() {
-    // Check if we need to update relationship data
-    // eslint-disable-next-line no-undef
-    const storedVersion = game.settings.get(
-      this.MODULE_ID,
-      "relationshipDataVersion"
-    );
-
-    if (storedVersion !== RELATIONSHIP_DATA_VERSION) {
-      // Create or update the relationship data
-      await this.createDefaultRelationshipTable();
-      // eslint-disable-next-line no-undef
-      await game.settings.set(
-        this.MODULE_ID,
-        "relationshipDataVersion",
-        RELATIONSHIP_DATA_VERSION
-      );
-    }
-  }
-
-  static async createDefaultRelationshipTable() {
-    console.log(
-      "Mothership Crew Relationships | Creating default relationship tables"
-    );
-
-    // eslint-disable-next-line no-undef
-    await game.settings.set(
-      this.MODULE_ID,
-      "relationshipData",
-      RELATIONSHIP_DATA
-    );
-
-    // eslint-disable-next-line no-undef
-    ui.notifications.info("Crew Relationships tables initialized");
-    return true;
+    console.log(game.i18n.localize("MODULE.Ready"));
   }
 
   static async rollRelationshipForActor(actor, targetActor) {
-    // eslint-disable-next-line no-undef
-    const relationshipData = game.settings.get(
-      this.MODULE_ID,
-      "relationshipData"
-    );
-
-    if (!relationshipData || Object.keys(relationshipData).length === 0) {
-      // eslint-disable-next-line no-undef
-      ui.notifications.warn("Crew Relationships data not found!");
-      return null;
-    }
+    // Always load fresh data from localization files
+    // This avoids Foundry's JSON serialization issues with arrays
+    const relationshipData = getLocalizedRelationshipData();
 
     // Roll 1d8 for major category
-    // eslint-disable-next-line no-undef
     const majorRoll = new Roll("1d8");
     await majorRoll.evaluate();
     const majorResult = majorRoll.total;
     const majorCategory = relationshipData[majorResult];
 
     // Roll 1d10 for minor relationship
-    // eslint-disable-next-line no-undef
     const minorRoll = new Roll("1d10");
     await minorRoll.evaluate();
     const minorResult = minorRoll.total - 1;
@@ -120,83 +45,20 @@ class CrewRelationships {
     await targetActor.update({ "system.relationships": targetRelationships });
 
     // Send chat message with dice rolls
-    // eslint-disable-next-line no-undef
     ChatMessage.create({
-      // eslint-disable-next-line no-undef
       user: game.user.id,
-      // eslint-disable-next-line no-undef
       speaker: ChatMessage.getSpeaker({ actor: actor }),
-      content: `
-                <div class="crew-relationship-roll">
-                    <strong>${actor.name}</strong> and <strong>${targetActor.name}</strong>'s relationship:
-                    <br/>
-                    <div style="margin-top: 8px;">
-                        <strong>Category Roll (1d8):</strong> ${majorResult} - <em>${majorCategory.name}</em>
-                        <br/>
-                        <strong>Relationship Roll (1d10):</strong> ${minorRoll.total}
-                    </div>
-                    <div style="margin-top: 8px; padding: 8px; background: rgba(0,0,0,0.2); border-left: 3px solid white;">
-                        <strong>${relationship}</strong>
-                    </div>
-                </div>
-            `,
+      content: createDiceRollChatMessage(
+        actor,
+        targetActor,
+        majorResult,
+        majorCategory,
+        minorRoll,
+        fullRelationship
+      ),
     });
 
     return fullRelationship;
-  }
-
-  static async rollAllRelationships(actor) {
-    // Get all player character actors except this one
-    // eslint-disable-next-line no-undef
-    const otherCharacters = game.actors.filter(
-      (a) => a.type === "character" && a.id !== actor.id && a.hasPlayerOwner
-    );
-
-    if (otherCharacters.length === 0) {
-      // eslint-disable-next-line no-undef
-      ui.notifications.info(
-        "No other player characters found to establish relationships with."
-      );
-      return;
-    }
-
-    // Initialize relationships object if it doesn't exist
-    if (!actor.system.relationships) {
-      await actor.update({ "system.relationships": {} });
-    }
-
-    const relationships = {};
-    const chatMessages = [`<h3>${actor.name}'s Crew Relationships</h3><hr/>`];
-
-    for (const other of otherCharacters) {
-      // eslint-disable-next-line no-undef
-      const tableId = game.settings.get(this.MODULE_ID, "relationshipTableId");
-      // eslint-disable-next-line no-undef
-      const table = game.tables.get(tableId);
-
-      if (table) {
-        const draw = await table.draw({ displayChat: false });
-        const relationship = draw.results[0]?.text || "No relationship";
-        relationships[other.id] = relationship;
-        chatMessages.push(`<strong>${other.name}:</strong> ${relationship}`);
-      }
-    }
-
-    // Update actor with relationships
-    await actor.update({ "system.relationships": relationships });
-
-    // Send a single chat message with all relationships
-    // eslint-disable-next-line no-undef
-    ChatMessage.create({
-      // eslint-disable-next-line no-undef
-      user: game.user.id,
-      // eslint-disable-next-line no-undef
-      speaker: ChatMessage.getSpeaker({ actor: actor }),
-      content: chatMessages.join("<br/>"),
-    });
-
-    // eslint-disable-next-line no-undef
-    ui.notifications.info(`Rolled relationships for ${actor.name}`);
   }
 
   static getActorRelationships(actor) {
@@ -204,7 +66,6 @@ class CrewRelationships {
     const result = [];
 
     for (const [actorId, relationship] of Object.entries(relationships)) {
-      // eslint-disable-next-line no-undef
       const other = game.actors.get(actorId);
       if (other) {
         result.push({
@@ -219,7 +80,6 @@ class CrewRelationships {
 
   static getAllPotentialRelationships(actor) {
     // Get all player character actors except this one
-    // eslint-disable-next-line no-undef
     const otherCharacters = game.actors.filter(
       (a) => a.type === "character" && a.id !== actor.id && a.hasPlayerOwner
     );
@@ -238,13 +98,12 @@ class CrewRelationships {
   }
 }
 
-// eslint-disable-next-line no-undef
 Hooks.once("init", () => CrewRelationships.initialize());
-// eslint-disable-next-line no-undef
+
 Hooks.once("ready", () => CrewRelationships.ready());
 
 // Hook into actor sheet rendering to add relationships tab
-// eslint-disable-next-line no-undef, no-unused-vars
+// eslint-disable-next-line no-unused-vars
 Hooks.on("renderMothershipActorSheet", async (app, html, data) => {
   if (app.actor.type !== "character") return;
 
@@ -254,19 +113,19 @@ Hooks.on("renderMothershipActorSheet", async (app, html, data) => {
   // Add the Relationships tab to the navigation
   const tabNav = html.find("nav.sheet-tabs");
   if (!tabNav.length) {
-    console.warn("Crew Relationships: Could not find tab navigation");
+    console.warn(game.i18n.localize("WARNINGS.TabNavigationNotFound"));
     return;
   }
 
   // Add new tab button
   tabNav.append(
-    `<a class="tab-select" data-tab="relationships">Relationships</a>`
+    `<a class="tab-select" data-tab="relationships">${game.i18n.localize("UI.Relationships")}</a>`
   );
 
   // Create the relationships tab content
   const sheetBody = html.find(".sheet-body");
   if (!sheetBody.length) {
-    console.warn("Crew Relationships: Could not find sheet body");
+    console.warn(game.i18n.localize("WARNINGS.SheetBodyNotFound"));
     return;
   }
 
@@ -285,15 +144,15 @@ Hooks.on("renderMothershipActorSheet", async (app, html, data) => {
         <div class="tab relationships-tab" data-tab="relationships" data-group="primary">
             <div class="crew-relationships-container">
                 <div class="relationships-header">
-                    <h2>Crew Relationships</h2>
+                    <h2>${game.i18n.localize("UI.CrewRelationships")}</h2>
                 </div>
     `;
 
   if (allRelationships.length === 0) {
     relationshipsTabHtml += `
             <div class="relationships-empty">
-                <p>No other crew members found.</p>
-                <p>Create more player characters to establish relationships.</p>
+                <p>${game.i18n.localize("UI.NoCrewMembers")}</p>
+                <p>${game.i18n.localize("UI.CreateMoreCharacters")}</p>
             </div>
         `;
   } else {
@@ -305,8 +164,8 @@ Hooks.on("renderMothershipActorSheet", async (app, html, data) => {
                     <div class="relationship-item" data-actor-id="${rel.actor.id}">
                         <div class="relationship-name">${rel.actor.name}</div>
                         <div class="relationship-description">${rel.relationship}</div>
-                        <button class="roll-single-relationship" data-target-id="${rel.actor.id}" title="Re-roll relationship">
-                            <i class="fas fa-dice"></i> Re-roll
+                        <button class="roll-single-relationship" data-target-id="${rel.actor.id}" title="${game.i18n.localize("UI.ReRoll")}">
+                            <i class="fas fa-dice"></i> ${game.i18n.localize("UI.ReRoll")}
                         </button>
                     </div>
                 `;
@@ -315,9 +174,9 @@ Hooks.on("renderMothershipActorSheet", async (app, html, data) => {
         relationshipsTabHtml += `
                     <div class="relationship-item no-relationship" data-actor-id="${rel.actor.id}">
                         <div class="relationship-name">${rel.actor.name}</div>
-                        <div class="relationship-description unrolled">No relationship established</div>
-                        <button class="roll-single-relationship" data-target-id="${rel.actor.id}" title="Roll relationship">
-                            <i class="fas fa-dice"></i> Roll
+                        <div class="relationship-description unrolled">${game.i18n.localize("UI.NoRelationshipEstablished")}</div>
+                        <button class="roll-single-relationship" data-target-id="${rel.actor.id}" title="${game.i18n.localize("UI.Roll")}">
+                            <i class="fas fa-dice"></i> ${game.i18n.localize("UI.Roll")}
                         </button>
                     </div>
                 `;
@@ -337,15 +196,13 @@ Hooks.on("renderMothershipActorSheet", async (app, html, data) => {
     event.preventDefault();
 
     // Check if user is GM
-    // eslint-disable-next-line no-undef
     if (!game.user.isGM) {
-      // eslint-disable-next-line no-undef
-      ui.notifications.warn("Only the GM can roll relationships.");
+      ui.notifications.warn(game.i18n.localize("NOTIFICATIONS.OnlyGMCanRoll"));
       return;
     }
 
     const targetId = event.currentTarget.dataset.targetId;
-    // eslint-disable-next-line no-undef
+
     const targetActor = game.actors.get(targetId);
 
     if (targetActor) {

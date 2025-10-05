@@ -1,0 +1,134 @@
+{
+  "MODULE": {
+    "Name": "Mothership Crew Relationships",
+    "Initializing": "Mothership Crew Relationships | Initializing",
+    "Ready": "Mothership Crew Relationships | Ready"
+  },
+  "NOTIFICATIONS": {
+    "OnlyGMCanRoll": "Only the GM can roll relationships."
+  },
+  "UI": {
+    "Relationships": "Relaciones",
+    "CrewRelationships": "Relaciones de la Tripulación",
+    "NoCrewMembers": "No se encontraron otros miembros de la tripulación.",
+    "CreateMoreCharacters": "Crea más personajes jugadores para establecer relaciones.",
+    "NoRelationshipEstablished": "No se ha establecido ninguna relación",
+    "NoRelationship": "Sin relación",
+    "ReRoll": "Volver a tirar",
+    "Roll": "Tirar",
+    "CategoryRoll": "Tirada de Categoría (1d8):",
+    "RelationshipRoll": "Tirada de Relación (1d10):"
+  },
+  "WARNINGS": {
+    "TabNavigationNotFound": "Crew Relationships: Could not find tab navigation",
+    "SheetBodyNotFound": "Crew Relationships: Could not find sheet body"
+  },
+  "RELATIONSHIPS": {
+    "Categories": {
+      "1": "Compañeros",
+      "2": "Profesional",
+      "3": "Romántico",
+      "4": "Obligación y Deuda",
+      "5": "Rivalidad",
+      "6": "Ambivalente",
+      "7": "Trauma Compartido",
+      "8": "Vínculo Improbable"
+    },
+    "1": {
+      "0": "They have been through hell together before.",
+      "1": "They are close friends and confidants.",
+      "2": "They have similar hobbies or interests.",
+      "3": "They have an unspoken code of mutual protection.",
+      "4": "One is trying to corrupt the other.",
+      "5": "They trust each other with their lives.",
+      "6": "They serve as a moral compass for the other.",
+      "7": "They are thick as thieves.",
+      "8": "One reminds the other of a lost friend or family member.",
+      "9": "They have a pact to get back to civilization together, no matter what."
+    },
+    "2": {
+      "0": "They served together in the same unit or corporation.",
+      "1": "One is a mentor to the other.",
+      "2": "They cover for the other's mistakes.",
+      "3": "One got the job the other wanted.",
+      "4": "They are professional rivals in direct competition.",
+      "5": "One is clearly better at the job, and it's a sore point.",
+      "6": "They share complaints about management or the current assignment.",
+      "7": "They collaborated on a successful—and profitable—project.",
+      "8": "Their methods and philosophies clash constantly.",
+      "9": "They have a shared history of failing together."
+    },
+    "3": {
+      "0": "They are secretly involved with each other.",
+      "1": "They are in a relationship together.",
+      "2": "They are former lovers, and it's still awkward.",
+      "3": "They had a bad breakup in their past.",
+      "4": "There is an unspoken attraction between them.",
+      "5": "They have a friends with benefits arrangement.",
+      "6": "They're stuck in a will-they-won't-they dynamic.",
+      "7": "They hooked up once, and it's complicated.",
+      "8": "One is trying to win the other back.",
+      "9": "They are trying to keep things strictly professional."
+    },
+    "4": {
+      "0": "One saved the other's life, creating a life debt.",
+      "1": "One knows a deeply damaging secret about the other.",
+      "2": "One is blackmailing the other.",
+      "3": "They owe the same dangerous people or corporation money.",
+      "4": "One took the fall for the other's mistake or crime.",
+      "5": "There is an unresolved debt between them.",
+      "6": "They are bound by a past betrayal.",
+      "7": "One helped the other escape the law.",
+      "8": "They are caught in the same conspiracy.",
+      "9": "There is a major unspoken obligation between them."
+    },
+    "5": {
+      "0": "They have a begrudging mutual respect for each other.",
+      "1": "They are bitter enemies with a shared history.",
+      "2": "They are former friends turned rivals.",
+      "3": "They are in a friendly competition with each other.",
+      "4": "One is a one-sided rival, but the other is oblivious.",
+      "5": "They want what the other has.",
+      "6": "They compete over nearly everything.",
+      "7": "They are from opposing factions or organizations.",
+      "8": "They are forced to work together despite their animosity.",
+      "9": "One blames the other for a personal loss."
+    },
+    "6": {
+      "0": "They have never really talked much, but are now stuck together.",
+      "1": "There is mutual indifference toward them.",
+      "2": "They run in different social circles, even on this ship.",
+      "3": "They know of each other, but that's it.",
+      "4": "One is actively avoiding the other.",
+      "5": "Something unspoken makes them awkward around each other.",
+      "6": "Their communication is stilted and formal.",
+      "7": "One is a minor celebrity to the other, but they don't know it.",
+      "8": "They have nothing in common to bond over.",
+      "9": "They get the feeling they've met before, but can't place where."
+    },
+    "7": {
+      "0": "They are the only survivors of a past disaster.",
+      "1": "They both witnessed something they shouldn't have.",
+      "2": "One saved the other from a horrific monster.",
+      "3": "They survived the same corporate experiment.",
+      "4": "They share the memory of a crewmate's death.",
+      "5": "They were both part of a failed mission with a high body count.",
+      "6": "They are bonded by a terrifying encounter from their past.",
+      "7": "They both suffer from a recurring nightmare from a shared event.",
+      "8": "One knows the other's most shameful secret.",
+      "9": "They are both running from the same past mistake."
+    },
+    "8": {
+      "0": "One comes from privilege, the other from poverty.",
+      "1": "They are two vastly different people who found a mutual interest.",
+      "2": "One is the other's hero, but they don't know it.",
+      "3": "They are both hiding a secret from the rest of the crew.",
+      "4": "They constantly get on each other's nerves, but they work well together.",
+      "5": "They were rivals, but have since gained respect for one another.",
+      "6": "One is a jaded veteran, the other a naive rookie.",
+      "7": "They are united by a common enemy.",
+      "8": "They are the only ones who can perform a specific task together.",
+      "9": "One is the other's confidant for a secret they are both keeping."
+    }
+  }
+}
