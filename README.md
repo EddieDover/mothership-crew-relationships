@@ -38,8 +38,6 @@ Players can view their character's relationships on the "Relationships" tab of t
 
 ## Relationship Categories
 
-
-
 1. **Companions** - Close bonds and friendships
 2. **Professional** - Work-related connections
 3. **Romantic** - Romantic entanglements
@@ -48,3 +46,9 @@ Players can view their character's relationships on the "Relationships" tab of t
 6. **Ambivalent** - Couldn't care less
 7. **Shared Trauma** - Experienced horrifying events
 8. **Unlikely Bond** - Differing attitudes or lifestyles
+
+## Support
+
+Please file a bug report above if possible. For things not bug related, please use the Discussion tab and open a discussion. 
+
+Otherwise, please contact me on Discord: EddieDover or at my Discord Server [here](https://discord.gg/hshfZA73fG).
