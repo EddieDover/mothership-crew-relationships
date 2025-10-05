@@ -5,7 +5,8 @@
     "Ready": "Mothership Relaciones de la Tripulación | Listo"
   },
   "NOTIFICATIONS": {
-    "OnlyGMCanRoll": "Solo el DJ puede tirar las relaciones."
+    "OnlyGMCanRoll": "Solo el DJ puede tirar las relaciones.",
+    "OnlyGMCanEdit": "Solo el DJ puede editar las relaciones."
   },
   "UI": {
     "Relationships": "Relaciones",
@@ -16,6 +17,11 @@
     "NoRelationship": "Sin relación",
     "ReRoll": "Volver a tirar",
     "Roll": "Tirar",
+    "Edit": "Editar",
+    "Save": "Guardar",
+    "Cancel": "Cancelar",
+    "EditRelationshipTitle": "Editar Relación: {actor1} y {actor2}",
+    "RelationshipText": "Relación",
     "CategoryRoll": "Tirada de Categoría (1d8):",
     "RelationshipRoll": "Tirada de Relación (1d10):"
   },

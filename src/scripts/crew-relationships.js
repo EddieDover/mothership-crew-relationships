@@ -96,6 +96,19 @@ class CrewRelationships {
 
     return result;
   }
+
+  static async setRelationship(actor, targetActor, relationshipText) {
+    // Update both actors' relationships
+    const actorRelationships = actor.system.relationships || {};
+    actorRelationships[targetActor.id] = relationshipText;
+    await actor.update({ "system.relationships": actorRelationships });
+
+    const targetRelationships = targetActor.system.relationships || {};
+    targetRelationships[actor.id] = relationshipText;
+    await targetActor.update({ "system.relationships": targetRelationships });
+
+    return relationshipText;
+  }
 }
 
 Hooks.once("init", () => CrewRelationships.initialize());
@@ -164,9 +177,14 @@ Hooks.on("renderMothershipActorSheet", async (app, html, data) => {
                     <div class="relationship-item" data-actor-id="${rel.actor.id}">
                         <div class="relationship-name">${rel.actor.name}</div>
                         <div class="relationship-description">${rel.relationship}</div>
-                        <button class="roll-single-relationship" data-target-id="${rel.actor.id}" title="${game.i18n.localize("UI.ReRoll")}">
-                            <i class="fas fa-dice"></i> ${game.i18n.localize("UI.ReRoll")}
-                        </button>
+                        <div class="relationship-buttons">
+                            <button class="roll-single-relationship" data-target-id="${rel.actor.id}" title="${game.i18n.localize("UI.ReRoll")}">
+                                <i class="fas fa-dice"></i> ${game.i18n.localize("UI.ReRoll")}
+                            </button>
+                            <button class="edit-relationship" data-target-id="${rel.actor.id}" title="${game.i18n.localize("UI.Edit")}">
+                                <i class="fas fa-edit"></i> ${game.i18n.localize("UI.Edit")}
+                            </button>
+                        </div>
                     </div>
                 `;
       } else {
@@ -175,9 +193,14 @@ Hooks.on("renderMothershipActorSheet", async (app, html, data) => {
                     <div class="relationship-item no-relationship" data-actor-id="${rel.actor.id}">
                         <div class="relationship-name">${rel.actor.name}</div>
                         <div class="relationship-description unrolled">${game.i18n.localize("UI.NoRelationshipEstablished")}</div>
-                        <button class="roll-single-relationship" data-target-id="${rel.actor.id}" title="${game.i18n.localize("UI.Roll")}">
-                            <i class="fas fa-dice"></i> ${game.i18n.localize("UI.Roll")}
-                        </button>
+                        <div class="relationship-buttons">
+                            <button class="roll-single-relationship" data-target-id="${rel.actor.id}" title="${game.i18n.localize("UI.Roll")}">
+                                <i class="fas fa-dice"></i> ${game.i18n.localize("UI.Roll")}
+                            </button>
+                            <button class="edit-relationship" data-target-id="${rel.actor.id}" title="${game.i18n.localize("UI.Edit")}">
+                                <i class="fas fa-edit"></i> ${game.i18n.localize("UI.Edit")}
+                            </button>
+                        </div>
                     </div>
                 `;
       }
@@ -214,6 +237,66 @@ Hooks.on("renderMothershipActorSheet", async (app, html, data) => {
       // Re-render the sheet
       app.render(false);
     }
+  });
+
+  html.find(".edit-relationship").click(async (event) => {
+    event.preventDefault();
+
+    // Check if user is GM
+    if (!game.user.isGM) {
+      ui.notifications.warn(game.i18n.localize("NOTIFICATIONS.OnlyGMCanEdit"));
+      return;
+    }
+
+    const targetId = event.currentTarget.dataset.targetId;
+    const targetActor = game.actors.get(targetId);
+
+    if (!targetActor) return;
+
+    const currentRelationship =
+      app.actor.system.relationships?.[targetId] || "";
+
+    new Dialog({
+      title: game.i18n.format("UI.EditRelationshipTitle", {
+        actor1: app.actor.name,
+        actor2: targetActor.name,
+      }),
+      content: `
+        <form>
+          <div class="form-group">
+            <label>${game.i18n.localize("UI.RelationshipText")}:</label>
+            <input type="text" name="relationship" value="${currentRelationship}" autofocus />
+          </div>
+        </form>
+      `,
+      buttons: {
+        save: {
+          icon: '<i class="fas fa-save"></i>',
+          label: game.i18n.localize("UI.Save"),
+          callback: async (html) => {
+            const newRelationship = html.find('[name="relationship"]').val();
+            if (newRelationship && newRelationship.trim() !== "") {
+              await CrewRelationships.setRelationship(
+                app.actor,
+                targetActor,
+                newRelationship.trim()
+              );
+
+              // Store the current tab before re-rendering
+              app._savedTab = "relationships";
+
+              // Re-render the sheet
+              app.render(false);
+            }
+          },
+        },
+        cancel: {
+          icon: '<i class="fas fa-times"></i>',
+          label: game.i18n.localize("UI.Cancel"),
+        },
+      },
+      default: "save",
+    }).render(true);
   });
 
   // Make sure tab switching works for our new tab

@@ -5,7 +5,8 @@
     "Ready": "Mothership Crew Relationships | Ready"
   },
   "NOTIFICATIONS": {
-    "OnlyGMCanRoll": "Only the GM can roll relationships."
+    "OnlyGMCanRoll": "Only the GM can roll relationships.",
+    "OnlyGMCanEdit": "Only the GM can edit relationships."
   },
   "UI": {
     "Relationships": "Relationships",
@@ -16,6 +17,11 @@
     "NoRelationship": "No relationship",
     "ReRoll": "Re-roll",
     "Roll": "Roll",
+    "Edit": "Edit",
+    "Save": "Save",
+    "Cancel": "Cancel",
+    "EditRelationshipTitle": "Edit Relationship: {actor1} & {actor2}",
+    "RelationshipText": "Relationship",
     "CategoryRoll": "Category Roll (1d8):",
     "RelationshipRoll": "Relationship Roll (1d10):"
   },
