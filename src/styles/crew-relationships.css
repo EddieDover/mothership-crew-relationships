@@ -100,9 +100,10 @@
 }
 
 .mosh .roll-single-relationship,
-.mosh .edit-relationship {
+.mosh .edit-relationship,
+.mosh .delete-relationship {
   cursor: pointer;
-  padding: 0.5rem 1rem;
+  padding: 0.5rem;
   background: #111;
   color: white;
   border: 2px solid white;
@@ -112,16 +113,24 @@
   transition: all 0.2s;
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  justify-content: center;
   white-space: nowrap;
+  min-width: 2.5rem;
+  min-height: 2.5rem;
 }
 
 .mosh .edit-relationship {
   border-color: #888;
 }
 
+.mosh .delete-relationship {
+  border-color: #c44;
+  color: #faa;
+}
+
 .mosh .roll-single-relationship:hover,
-.mosh .edit-relationship:hover {
+.mosh .edit-relationship:hover,
+.mosh .delete-relationship:hover {
   background: #202020;
   box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
   text-shadow: 0 0 10px white;
@@ -129,6 +138,12 @@
 
 .mosh .edit-relationship:hover {
   border-color: white;
+}
+
+.mosh .delete-relationship:hover {
+  border-color: #f44;
+  color: white;
+  box-shadow: 0 0 10px rgba(255, 68, 68, 0.5);
 }
 
 /* Make sure the tab is hidden by default */
