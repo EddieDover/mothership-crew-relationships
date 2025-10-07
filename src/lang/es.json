@@ -7,6 +7,7 @@
   "NOTIFICATIONS": {
     "OnlyGMCanRoll": "Solo el DJ puede tirar las relaciones.",
     "OnlyGMCanEdit": "Solo el DJ puede editar las relaciones.",
+    "OnlyGMCanDelete": "Solo el DJ puede eliminar las relaciones.",
     "OnlyGMCanView": "Solo el DJ puede ver la red de relaciones."
   },
   "UI": {
@@ -19,6 +20,7 @@
     "ReRoll": "Volver a tirar",
     "Roll": "Tirar",
     "Edit": "Editar",
+    "Delete": "Eliminar",
     "Save": "Guardar",
     "Cancel": "Cancelar",
     "EditRelationshipTitle": "Editar Relación: {actor1} y {actor2}",

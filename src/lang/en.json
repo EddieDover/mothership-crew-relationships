@@ -7,6 +7,7 @@
   "NOTIFICATIONS": {
     "OnlyGMCanRoll": "Only the GM can roll relationships.",
     "OnlyGMCanEdit": "Only the GM can edit relationships.",
+    "OnlyGMCanDelete": "Only the GM can delete relationships.",
     "OnlyGMCanView": "Only the GM can view the relationship web."
   },
   "UI": {
@@ -19,6 +20,7 @@
     "ReRoll": "Re-roll",
     "Roll": "Roll",
     "Edit": "Edit",
+    "Delete": "Delete",
     "Save": "Save",
     "Cancel": "Cancel",
     "EditRelationshipTitle": "Edit Relationship: {actor1} & {actor2}",

@@ -126,6 +126,17 @@ class CrewRelationships {
 
     return relationshipText;
   }
+
+  static async deleteRelationship(actor, targetActor) {
+    // Remove relationship from both actors
+    const actorRelationships = actor.system.relationships || {};
+    delete actorRelationships[targetActor.id];
+    await actor.update({ "system.relationships": actorRelationships });
+
+    const targetRelationships = targetActor.system.relationships || {};
+    delete targetRelationships[actor.id];
+    await targetActor.update({ "system.relationships": targetRelationships });
+  }
 }
 
 Hooks.once("init", () => CrewRelationships.initialize());
@@ -212,10 +223,13 @@ Hooks.on("renderMothershipActorSheet", async (app, html, data) => {
                         <div class="relationship-description">${rel.relationship}</div>
                         <div class="relationship-buttons">
                             <button class="roll-single-relationship" data-target-id="${rel.actor.id}" title="${game.i18n.localize("UI.ReRoll")}">
-                                <i class="fas fa-dice"></i> ${game.i18n.localize("UI.ReRoll")}
+                                <i class="fas fa-dice"></i>
                             </button>
                             <button class="edit-relationship" data-target-id="${rel.actor.id}" title="${game.i18n.localize("UI.Edit")}">
-                                <i class="fas fa-edit"></i> ${game.i18n.localize("UI.Edit")}
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <button class="delete-relationship" data-target-id="${rel.actor.id}" title="${game.i18n.localize("UI.Delete")}">
+                                <i class="fas fa-trash"></i>
                             </button>
                         </div>
                     </div>
@@ -228,10 +242,10 @@ Hooks.on("renderMothershipActorSheet", async (app, html, data) => {
                         <div class="relationship-description unrolled">${game.i18n.localize("UI.NoRelationshipEstablished")}</div>
                         <div class="relationship-buttons">
                             <button class="roll-single-relationship" data-target-id="${rel.actor.id}" title="${game.i18n.localize("UI.Roll")}">
-                                <i class="fas fa-dice"></i> ${game.i18n.localize("UI.Roll")}
+                                <i class="fas fa-dice"></i>
                             </button>
                             <button class="edit-relationship" data-target-id="${rel.actor.id}" title="${game.i18n.localize("UI.Edit")}">
-                                <i class="fas fa-edit"></i> ${game.i18n.localize("UI.Edit")}
+                                <i class="fas fa-edit"></i>
                             </button>
                         </div>
                     </div>
@@ -330,6 +344,31 @@ Hooks.on("renderMothershipActorSheet", async (app, html, data) => {
       },
       default: "save",
     }).render(true);
+  });
+
+  html.find(".delete-relationship").click(async (event) => {
+    event.preventDefault();
+
+    // Check if user is GM
+    if (!game.user.isGM) {
+      ui.notifications.warn(
+        game.i18n.localize("NOTIFICATIONS.OnlyGMCanDelete")
+      );
+      return;
+    }
+
+    const targetId = event.currentTarget.dataset.targetId;
+    const targetActor = game.actors.get(targetId);
+
+    if (!targetActor) return;
+
+    await CrewRelationships.deleteRelationship(app.actor, targetActor);
+
+    // Store the current tab before re-rendering
+    app._savedTab = "relationships";
+
+    // Re-render the sheet
+    app.render(false);
   });
 
   // Make sure tab switching works for our new tab
