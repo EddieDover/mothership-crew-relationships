@@ -5,15 +5,38 @@ import archiver from "archiver";
 import fsSync from "fs";
 import fs from "fs/promises";
 import path from "path";
+import * as sass from "sass";
 
 const SRC_DIR = "src";
 const DIST_DIR = "dist";
 
 // Files and directories to exclude from the build
-const EXCLUDE_PATTERNS = ["__tests__", ".test.js", ".spec.js"];
+const EXCLUDE_PATTERNS = ["__tests__", ".test.js", ".spec.js", ".css", ".scss"];
 
 async function shouldExclude(filePath) {
   return EXCLUDE_PATTERNS.some((pattern) => filePath.includes(pattern));
+}
+
+async function compileSass() {
+  const scssFile = path.join(SRC_DIR, "styles", "crew-relationships.scss");
+  const cssOutputFile = path.join(DIST_DIR, "styles", "crew-relationships.css");
+
+  console.log(`Compiling SCSS: ${scssFile}`);
+
+  try {
+    const result = sass.compile(scssFile, {
+      style: "compressed",
+      sourceMap: false,
+    });
+
+    await fs.mkdir(path.dirname(cssOutputFile), { recursive: true });
+    await fs.writeFile(cssOutputFile, result.css);
+
+    console.log(`Compiled: ${scssFile} -> ${cssOutputFile}`);
+  } catch (error) {
+    console.error("SCSS compilation failed:", error);
+    throw error;
+  }
 }
 
 async function copyDir(src, dest) {
@@ -50,6 +73,10 @@ async function build() {
 
     console.log("Copying files...");
     await copyDir(SRC_DIR, DIST_DIR);
+
+    // Compile SCSS to CSS
+    console.log("Compiling SCSS...");
+    await compileSass();
 
     // Copy README and CHANGELOG from root to dist
     console.log("Copying README and CHANGELOG...");

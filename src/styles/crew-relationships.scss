@@ -1,3 +1,5 @@
+// Scoped styles for Mothership Crew Relationships module
+
 .mosh .relationships-tab {
   background: #111;
   color: white;
@@ -18,15 +20,15 @@
   border-radius: 0.5rem;
   margin-bottom: 1.5rem;
   text-align: center;
-}
 
-.mosh .relationships-header h2 {
-  margin: 0;
-  color: white;
-  font-family: "Roboto", sans-serif;
-  font-size: 1.5rem;
-  font-weight: bold;
-  text-transform: uppercase;
+  h2 {
+    margin: 0;
+    color: white;
+    font-family: "Roboto", sans-serif;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
 }
 
 .mosh .relationships-empty {
@@ -35,12 +37,12 @@
   background: #000;
   border: 2px solid #333;
   border-radius: 0.5rem;
-}
 
-.mosh .relationships-empty p {
-  color: #ccc;
-  font-size: 1.1rem;
-  margin: 0.5rem 0;
+  p {
+    color: #ccc;
+    font-size: 1.1rem;
+    margin: 0.5rem 0;
+  }
 }
 
 .mosh .relationships-list {
@@ -59,15 +61,15 @@
   gap: 1rem;
   align-items: center;
   transition: all 0.2s;
-}
 
-.mosh .relationship-item:hover {
-  background: #1a1a1a;
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
-}
+  &:hover {
+    background: #1a1a1a;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+  }
 
-.mosh .relationship-item.no-relationship {
-  border-color: #666;
+  &.no-relationship {
+    border-color: #666;
+  }
 }
 
 .mosh .relationship-name {
@@ -87,10 +89,10 @@
   display: flex;
   align-items: center;
   font-size: 1rem;
-}
 
-.mosh .relationship-description.unrolled {
-  color: #666;
+  &.unrolled {
+    color: #666;
+  }
 }
 
 .mosh .relationship-buttons {
@@ -99,71 +101,73 @@
   align-items: center;
 }
 
-.mosh .roll-single-relationship,
-.mosh .edit-relationship,
-.mosh .delete-relationship {
-  cursor: pointer;
-  padding: 0.5rem;
-  background: #111;
-  color: white;
-  border: 2px solid white;
-  border-radius: 0.3rem;
-  font-weight: bold;
-  text-transform: uppercase;
-  transition: all 0.2s;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  white-space: nowrap;
-  min-width: 2.5rem;
-  min-height: 2.5rem;
+.mosh {
+  .roll-single-relationship,
+  .edit-relationship,
+  .delete-relationship {
+    cursor: pointer;
+    padding: 0.5rem;
+    background: #111;
+    color: white;
+    border: 2px solid white;
+    border-radius: 0.3rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+    min-width: 2.5rem;
+    min-height: 2.5rem;
+
+    &:hover {
+      background: #202020;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+      text-shadow: 0 0 10px white;
+    }
+  }
+
+  .edit-relationship {
+    border-color: #888;
+
+    &:hover {
+      border-color: white;
+    }
+  }
+
+  .delete-relationship {
+    border-color: #c44;
+    color: #faa;
+
+    &:hover {
+      border-color: #f44;
+      color: white;
+      box-shadow: 0 0 10px rgba(255, 68, 68, 0.5);
+    }
+  }
 }
 
-.mosh .edit-relationship {
-  border-color: #888;
+// Make sure the tab is hidden by default
+.mosh .tab.relationships-tab {
+  &:not(.active) {
+    display: none;
+  }
+
+  &.active {
+    display: block;
+  }
 }
 
-.mosh .delete-relationship {
-  border-color: #c44;
-  color: #faa;
-}
-
-.mosh .roll-single-relationship:hover,
-.mosh .edit-relationship:hover,
-.mosh .delete-relationship:hover {
-  background: #202020;
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
-  text-shadow: 0 0 10px white;
-}
-
-.mosh .edit-relationship:hover {
-  border-color: white;
-}
-
-.mosh .delete-relationship:hover {
-  border-color: #f44;
-  color: white;
-  box-shadow: 0 0 10px rgba(255, 68, 68, 0.5);
-}
-
-/* Make sure the tab is hidden by default */
-.mosh .tab.relationships-tab:not(.active) {
-  display: none;
-}
-
-.mosh .tab.relationships-tab.active {
-  display: block;
-}
-
-/* Relationship Viewer Window */
+// Relationship Viewer Window - scoped separately as it's a separate window
 .crew-relationship-viewer {
   background: #111;
-}
 
-.crew-relationship-viewer .window-content {
-  background: #111;
-  padding: 0;
-  overflow: hidden;
+  .window-content {
+    background: #111;
+    padding: 0;
+    overflow: hidden;
+  }
 }
 
 .relationship-viewer-container {
@@ -198,18 +202,18 @@
   justify-content: center;
   align-items: center;
   font-size: 0.9rem;
-}
 
-.relationship-legend p {
-  margin: 0;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  color: #ccc;
-}
+  p {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #ccc;
+  }
 
-.relationship-legend i {
-  color: white;
+  i {
+    color: white;
+  }
 }
 
 .relationship-viewer-empty {
@@ -220,15 +224,15 @@
   height: 100%;
   padding: 3rem;
   text-align: center;
+
+  p {
+    color: #ccc;
+    font-size: 1.1rem;
+    margin: 0.5rem 0;
+  }
 }
 
-.relationship-viewer-empty p {
-  color: #ccc;
-  font-size: 1.1rem;
-  margin: 0.5rem 0;
-}
-
-/* Tooltip for relationship viewer */
+// Tooltip for relationship viewer
 .relationship-tooltip {
   position: fixed;
   background: rgba(0, 0, 0, 0.95);
@@ -241,10 +245,10 @@
   z-index: 10000;
   max-width: 300px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
-}
 
-.relationship-tooltip strong {
-  display: block;
-  margin-bottom: 0.25rem;
-  color: #ffcc00;
+  strong {
+    display: block;
+    margin-bottom: 0.25rem;
+    color: #ffcc00;
+  }
 }
