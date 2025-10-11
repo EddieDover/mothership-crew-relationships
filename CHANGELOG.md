@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.1.4](https://github.com/EddieDover/mothership-crew-relationships/compare/v1.1.3...v1.1.4) (2025-10-11)
+
+### Bug Fixes
+
+- build now includes readme and changelog for people using a module manager ([2ed1c25](https://github.com/EddieDover/mothership-crew-relationships/commit/2ed1c254b766c5f37a810aade8035b7d60b16b3e))
+
 ## [1.1.3](https://github.com/EddieDover/mothership-crew-relationships/compare/v1.1.2...v1.1.3) (2025-10-11)
 
 ### Bug Fixes
