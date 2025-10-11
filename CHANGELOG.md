@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.1.3](https://github.com/EddieDover/mothership-crew-relationships/compare/v1.1.2...v1.1.3) (2025-10-11)
+
+### Bug Fixes
+
+- enter key no longer rerolls relationships on accident ([556994d](https://github.com/EddieDover/mothership-crew-relationships/commit/556994dc8f90d1aeff667c3f8f81fa78701f8517))
+
 ## [1.1.2](https://github.com/EddieDover/mothership-crew-relationships/compare/v1.1.1...v1.1.2) (2025-10-07)
 
 ### Features
