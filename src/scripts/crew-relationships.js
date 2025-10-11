@@ -222,13 +222,13 @@ Hooks.on("renderMothershipActorSheet", async (app, html, data) => {
                         <div class="relationship-name">${rel.actor.name}</div>
                         <div class="relationship-description">${rel.relationship}</div>
                         <div class="relationship-buttons">
-                            <button class="roll-single-relationship" data-target-id="${rel.actor.id}" title="${game.i18n.localize("UI.ReRoll")}">
+                            <button class="roll-single-relationship" type="button" data-target-id="${rel.actor.id}" title="${game.i18n.localize("UI.ReRoll")}">
                                 <i class="fas fa-dice"></i>
                             </button>
-                            <button class="edit-relationship" data-target-id="${rel.actor.id}" title="${game.i18n.localize("UI.Edit")}">
+                            <button class="edit-relationship" type="button" data-target-id="${rel.actor.id}" title="${game.i18n.localize("UI.Edit")}">
                                 <i class="fas fa-edit"></i>
                             </button>
-                            <button class="delete-relationship" data-target-id="${rel.actor.id}" title="${game.i18n.localize("UI.Delete")}">
+                            <button class="delete-relationship" type="button" data-target-id="${rel.actor.id}" title="${game.i18n.localize("UI.Delete")}">
                                 <i class="fas fa-trash"></i>
                             </button>
                         </div>
@@ -241,10 +241,10 @@ Hooks.on("renderMothershipActorSheet", async (app, html, data) => {
                         <div class="relationship-name">${rel.actor.name}</div>
                         <div class="relationship-description unrolled">${game.i18n.localize("UI.NoRelationshipEstablished")}</div>
                         <div class="relationship-buttons">
-                            <button class="roll-single-relationship" data-target-id="${rel.actor.id}" title="${game.i18n.localize("UI.Roll")}">
+                            <button class="roll-single-relationship" type="button" data-target-id="${rel.actor.id}" title="${game.i18n.localize("UI.Roll")}">
                                 <i class="fas fa-dice"></i>
                             </button>
-                            <button class="edit-relationship" data-target-id="${rel.actor.id}" title="${game.i18n.localize("UI.Edit")}">
+                            <button class="edit-relationship"  type="button" data-target-id="${rel.actor.id}" title="${game.i18n.localize("UI.Edit")}">
                                 <i class="fas fa-edit"></i>
                             </button>
                         </div>
@@ -303,7 +303,7 @@ Hooks.on("renderMothershipActorSheet", async (app, html, data) => {
     const currentRelationship =
       app.actor.system.relationships?.[targetId] || "";
 
-    new Dialog({
+    const dialog = new Dialog({
       title: game.i18n.format("UI.EditRelationshipTitle", {
         actor1: app.actor.name,
         actor2: targetActor.name,
@@ -343,6 +343,13 @@ Hooks.on("renderMothershipActorSheet", async (app, html, data) => {
         },
       },
       default: "save",
+      render: (html) => {
+        // Prevent form submission on Enter key
+        html.find("form").on("submit", (e) => {
+          e.preventDefault();
+          dialog.submit();
+        });
+      },
     }).render(true);
   });
 
