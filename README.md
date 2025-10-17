@@ -20,8 +20,15 @@ A Foundry VTT module that adds a crew relationships system to Mothership charact
 
 1. In Foundry VTT, go to the Add-on Modules tab
 2. Click "Install Module"
-3. Search for "Mothership Crew Relationships" or paste the manifest URL
+3. <s>Search for "Mothership Crew Relationships"</s> (coming soon!) or paste the manifest URL
 4. Click Install
+
+### Manifest URL
+
+```
+https://github.com/EddieDover/mothership-crew-relationships/releases/latest/download/module.json
+```
+
 
 ## Usage
 
