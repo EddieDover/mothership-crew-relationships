@@ -29,12 +29,6 @@ class CrewRelationships {
           });
           return choices;
         },
-        onChange: (value) => {
-          console.log(
-            "Custom Relationship Roll Table setting changed to:",
-            value
-          );
-        },
       }
     );
 
