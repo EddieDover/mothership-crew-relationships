@@ -9,6 +9,7 @@ A Foundry VTT module that adds a crew relationships system to Mothership charact
 - **8 Relationship Categories**: Companions, Professional, Romantic, Obligation & Debt, Shared Secrets, History, Conflict, and Family & Kin
 - **80 Unique Relationships**: 10 specific relationships per category.
 - **Custom Relationships**: Don't like the built-in relationships? Edit them and write your own!
+- **Custom Nested RollTable Support**: Supports using your own nested-rolltables for relationships.
 - **Relationship Map Viewer**: A button in the token section allows you to view a relationship web.
 
 ## Requirements
@@ -29,7 +30,6 @@ A Foundry VTT module that adds a crew relationships system to Mothership charact
 https://github.com/EddieDover/mothership-crew-relationships/releases/latest/download/module.json
 ```
 
-
 ## Usage
 
 ### For GMs
@@ -40,6 +40,15 @@ https://github.com/EddieDover/mothership-crew-relationships/releases/latest/down
 2. Navigate to the "Relationships" tab
 3. Click the button next to another player character's name
 4. The relationship will be rolled and posted to chat, then stored on the character sheet
+
+#### Custom Roll Tables
+
+To create a compatible nested rolltable configuration, do the following:
+
+1. Create 1 roll table per sub-category of your planned, primary, relationships roll-table.
+2. Create items inside each of the sub-category roll-tables. The module will look for item description first, and then fall back to item name if it is not set.
+3. Create a primary relationships roll table. Inside of which, create one item per sub-category. Change the name of the item to the sub-category name, and change the Result Type to Document. Then drag the sub-category roll table onto the provided field.
+4. Click the `Copy Document UUID` button on the primary relationships table, and paste the string into provided text input in the module settings.
 
 ### For Players
 
