@@ -50,7 +50,7 @@ To create a compatible nested rolltable configuration, do the following:
 1. Create 1 roll table per sub-category of your planned, primary, relationships roll-table.
 2. Create items inside each of the sub-category roll-tables. The module will look for item description first, and then fall back to item name if it is not set.
 3. Create a primary relationships roll table. Inside of which, create one item per sub-category. Change the name of the item to the sub-category name, and change the Result Type to Document. Then drag the sub-category roll table onto the provided field.
-4. Click the `Copy Document UUID` button on the primary relationships table, and paste the string into provided text input in the module settings.
+4. Select the primary roll table from the dropdown selection in the module options.
 
 ### For Players
 
