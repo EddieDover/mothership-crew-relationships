@@ -15,7 +15,9 @@ A Foundry VTT module that adds a crew relationships system to Mothership charact
 ## Requirements
 
 - Foundry VTT v13 or higher
-- Mothership RPG System (mosh) v0.6.0 or higher
+- One of the following systems:
+  - Mothership RPG System (mosh) v0.6.0 or higher
+  - MotherShip 1e - Français (mothership-fr) v1.6.41 or higher
 
 ## Installation
 
