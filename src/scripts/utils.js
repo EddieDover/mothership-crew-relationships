@@ -37,6 +37,8 @@ export function getLocalizedRelationshipData(
  * @export
  * @param {*} actor - The actor performing the roll
  * @param {*} targetActor - The target actor of the roll
+ * @param {*} majorRollFormula - The formula used for the major roll
+ * @param {*} minorRollFormula - The formula used for the minor roll
  * @param {*} majorResult - The major roll result
  * @param {*} majorCategory - The major category object
  * @param {*} minorRoll - The minor roll result object
@@ -46,6 +48,8 @@ export function getLocalizedRelationshipData(
 export function createDiceRollChatMessage(
   actor,
   targetActor,
+  majorRollFormula,
+  minorRollFormula,
   majorResult,
   majorCategory,
   minorRoll,
@@ -55,9 +59,9 @@ export function createDiceRollChatMessage(
                     <strong>${actor.name}</strong> and <strong>${targetActor.name}</strong>'s relationship:
                     <br/>
                     <div style="margin-top: 8px;">
-                        <strong>${game.i18n.localize("UI.CategoryRoll")}</strong> ${majorResult} - <em>${majorCategory.name}</em>
+                        <strong>${game.i18n.localize("UI.CategoryRoll")} (${majorRollFormula}):</strong> ${majorResult} - <em>${majorCategory.name}</em>
                         <br/>
-                        <strong>${game.i18n.localize("UI.RelationshipRoll")}</strong> ${minorRoll.total}
+                        <strong>${game.i18n.localize("UI.RelationshipRoll")} (${minorRollFormula}):</strong> ${minorRoll.total}
                     </div>
                     <div style="margin-top: 8px; padding: 8px; background: rgba(0,0,0,0.2); border-left: 3px solid white;">
                         <strong>${relationship}</strong>

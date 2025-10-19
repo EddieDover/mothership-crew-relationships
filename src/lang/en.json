@@ -10,6 +10,13 @@
     "OnlyGMCanDelete": "Only the GM can delete relationships.",
     "OnlyGMCanView": "Only the GM can view the relationship web."
   },
+  "SETTINGS": {
+    "CustomRollTable": {
+      "Name": "Custom Relationship Roll Table",
+      "Hint": "If set, this roll table will be used instead of the default relationships.",
+      "Default": "Use Default Built-in Table"
+    }
+  },
   "UI": {
     "Relationships": "Relationships",
     "CrewRelationships": "Crew Relationships",
@@ -25,8 +32,8 @@
     "Cancel": "Cancel",
     "EditRelationshipTitle": "Edit Relationship: {actor1} & {actor2}",
     "RelationshipText": "Relationship",
-    "CategoryRoll": "Category Roll (1d8):",
-    "RelationshipRoll": "Relationship Roll (1d10):",
+    "CategoryRoll": "Category Roll",
+    "RelationshipRoll": "Relationship Roll",
     "RelationshipViewer": "Crew Relationship Web",
     "ViewRelationships": "View Crew Relationships",
     "ViewerLegendNodes": "Characters - Click to open sheet",

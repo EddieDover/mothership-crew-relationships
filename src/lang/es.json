@@ -10,6 +10,13 @@
     "OnlyGMCanDelete": "Solo el DJ puede eliminar las relaciones.",
     "OnlyGMCanView": "Solo el DJ puede ver la red de relaciones."
   },
+  "SETTINGS": {
+    "CustomRollTable": {
+      "Name": "Tabla de Tiro de Relación Personalizada",
+      "Hint": "Si se establece, esta tabla de tiro se utilizará en lugar de las relaciones predeterminadas.",
+      "Default": "Usar Tabla Incorporada Predeterminada"
+    }
+  },
   "UI": {
     "Relationships": "Relaciones",
     "CrewRelationships": "Relaciones de la Tripulación",
@@ -25,8 +32,8 @@
     "Cancel": "Cancelar",
     "EditRelationshipTitle": "Editar Relación: {actor1} y {actor2}",
     "RelationshipText": "Relación",
-    "CategoryRoll": "Tirada de Categoría (1d8):",
-    "RelationshipRoll": "Tirada de Relación (1d10):",
+    "CategoryRoll": "Tirada de Categoría",
+    "RelationshipRoll": "Tirada de Relación",
     "RelationshipViewer": "Red de Relaciones de la Tripulación",
     "ViewRelationships": "Ver Relaciones de la Tripulación",
     "ViewerLegendNodes": "Personajes - Clic para abrir hoja",
