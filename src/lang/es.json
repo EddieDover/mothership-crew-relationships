@@ -13,7 +13,8 @@
   "SETTINGS": {
     "CustomRollTable": {
       "Name": "Tabla de Tiro de Relación Personalizada",
-      "Hint": "Si se establece, esta tabla de tiro se utilizará en lugar de las relaciones predeterminadas."
+      "Hint": "Si se establece, esta tabla de tiro se utilizará en lugar de las relaciones predeterminadas.",
+      "Default": "Usar Tabla Incorporada Predeterminada"
     }
   },
   "UI": {

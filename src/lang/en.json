@@ -13,7 +13,8 @@
   "SETTINGS": {
     "CustomRollTable": {
       "Name": "Custom Relationship Roll Table",
-      "Hint": "If set, this roll table will be used instead of the default relationships."
+      "Hint": "If set, this roll table will be used instead of the default relationships.",
+      "Default": "Use Default Built-in Table"
     }
   },
   "UI": {

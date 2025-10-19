@@ -23,7 +23,7 @@ class CrewRelationships {
         type: String,
         default: "",
         choices: () => {
-          const choices = { "": "Use Default Built-in Table" };
+          const choices = { "": "SETTINGS.CustomRollTable.Default" };
           game.tables.forEach((table) => {
             choices[table.id] = table.name;
           });
