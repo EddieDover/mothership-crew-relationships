@@ -11,8 +11,35 @@ class CrewRelationships {
   static MODULE_ID = "mothership-crew-relationships";
   static RELATIONSHIP_TABLE_NAME = "Crew Relationships";
 
+  static async registerSettings() {
+    await game.settings.register(
+      "mothership-crew-relationships",
+      "customRollTable",
+      {
+        name: "Custom Relationship Roll Table",
+        hint: "If set, this roll table will be used instead of the default relationships.",
+        scope: "world",
+        config: true,
+        type: String,
+        default: "",
+        onChange: (value) => {
+          console.log(
+            "Custom Relationship Roll Table setting changed to:",
+            value
+          );
+        },
+      }
+    );
+
+    console.log("Mothership Crew Relationships | Settings Registered");
+  }
+
   static async initialize() {
-    console.log(game.i18n.localize("MODULE.Initializing"));
+    console.log(
+      game.i18n.localize("Mothership Crew Relationships | Initalizing")
+    );
+
+    await this.registerSettings();
   }
 
   static async ready() {
@@ -33,24 +60,88 @@ class CrewRelationships {
   }
 
   static async rollRelationshipForActor(actor, targetActor) {
-    // Always load fresh data from localization files
-    // This avoids Foundry's JSON serialization issues with arrays
-    const relationshipData = getLocalizedRelationshipData();
+    const customTableId = await game.settings.get(
+      "mothership-crew-relationships",
+      "customRollTable"
+    );
+    /**
+     * @type {{ actor: Actor, targetActor: Actor, majorResult: number, majorCategory: string, minorRoll: Roll, fullRelationship: string }}
+     */
+    let chatMessageArgs = {
+      actor: actor,
+      targetActor: targetActor,
+      majorRollFormula: "",
+      minorRollFormula: "",
+      majorResult: null,
+      majorCategory: null,
+      minorRoll: null,
+      fullRelationship: null,
+    };
+    let fullRelationship = "";
+    const isUsingCustomTable = !!customTableId;
+    console.log("Using custom roll table ID:", customTableId);
 
-    // Roll 1d8 for major category
-    const majorRoll = new Roll("1d8");
-    await majorRoll.evaluate();
-    const majorResult = majorRoll.total;
-    const majorCategory = relationshipData[majorResult];
+    if (isUsingCustomTable === false) {
+      // Always load fresh data from localization files
+      // This avoids Foundry's JSON serialization issues with arrays
+      const relationshipData = getLocalizedRelationshipData();
 
-    // Roll 1d10 for minor relationship
-    const minorRoll = new Roll("1d10");
-    await minorRoll.evaluate();
-    const minorResult = minorRoll.total - 1;
-    const relationship = majorCategory.relationships[minorResult];
+      // Roll 1d8 for major category
+      const majorRollFormula = "1d8";
+      const majorRoll = new Roll(majorRollFormula);
+      await majorRoll.evaluate();
+      const majorResult = majorRoll.total;
+      const majorCategory = relationshipData[majorResult];
 
-    // Create the full relationship text with category
-    const fullRelationship = `${majorCategory.name}: ${relationship}`;
+      // Roll 1d10 for minor relationship
+      const minorRollFormula = "1d10";
+      const minorRoll = new Roll(minorRollFormula);
+      await minorRoll.evaluate();
+      const minorResult = minorRoll.total - 1;
+      const relationship = majorCategory.relationships[minorResult];
+
+      // Create the full relationship text with category
+      fullRelationship = `${majorCategory.name}: ${relationship}`;
+
+      chatMessageArgs.majorRollFormula = majorRollFormula;
+      chatMessageArgs.majorResult = majorResult;
+      chatMessageArgs.majorCategory = majorCategory.name;
+      chatMessageArgs.minorRollFormula = minorRollFormula;
+      chatMessageArgs.minorRoll = minorRoll;
+      chatMessageArgs.fullRelationship = fullRelationship;
+    } else {
+      // Use custom roll table if specified
+      const tableId = customTableId.replace("RollTable.", "");
+      const rollTable = game.tables.get(tableId);
+      if (!rollTable) {
+        ui.notifications.error(game.i18n.localize("ERRORS.RollTableNotFound"));
+        return null;
+      }
+      const draw = await rollTable.draw({
+        displayChat: false,
+        recursive: true,
+      });
+      const drawResults = draw.results[0];
+      const relationshipText = drawResults.description || drawResults.name;
+      fullRelationship = relationshipText;
+      const subResultCollection = drawResults.collection;
+      const subResultId = drawResults.id;
+      let subResultIndex = -1;
+      subResultCollection.contents.forEach((item, idx) => {
+        if (item.id === subResultId) {
+          subResultIndex = idx;
+        }
+      });
+
+      chatMessageArgs.majorResult = draw.roll.total;
+      chatMessageArgs.majorRollFormula = draw.roll.formula;
+      chatMessageArgs.majorCategory = drawResults.parent.name;
+      chatMessageArgs.minorRoll = {
+        total: subResultIndex + 1,
+      };
+      chatMessageArgs.minorRollFormula = drawResults.parent.formula;
+      chatMessageArgs.fullRelationship = fullRelationship;
+    }
 
     // Update both actors' relationships
     const actorRelationships = actor.system.relationships || {};
@@ -66,12 +157,14 @@ class CrewRelationships {
       user: game.user.id,
       speaker: ChatMessage.getSpeaker({ actor: actor }),
       content: createDiceRollChatMessage(
-        actor,
-        targetActor,
-        majorResult,
-        majorCategory,
-        minorRoll,
-        fullRelationship
+        chatMessageArgs.actor,
+        chatMessageArgs.targetActor,
+        chatMessageArgs.majorRollFormula,
+        chatMessageArgs.minorRollFormula,
+        chatMessageArgs.majorResult,
+        { name: chatMessageArgs.majorCategory },
+        chatMessageArgs.minorRoll,
+        chatMessageArgs.fullRelationship
       ),
     });
 
