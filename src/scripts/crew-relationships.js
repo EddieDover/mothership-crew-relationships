@@ -79,7 +79,6 @@ class CrewRelationships {
     };
     let fullRelationship = "";
     const isUsingCustomTable = !!customTableId;
-    console.log("Using custom roll table ID:", customTableId);
 
     if (isUsingCustomTable === false) {
       // Always load fresh data from localization files
