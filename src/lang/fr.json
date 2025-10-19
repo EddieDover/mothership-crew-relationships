@@ -13,7 +13,8 @@
   "SETTINGS": {
     "CustomRollTable": {
       "Name": "Table de Jets de Relations Personnalisée",
-      "Hint": "Si définie, cette table de jets sera utilisée à la place des relations par défaut."
+      "Hint": "Si définie, cette table de jets sera utilisée à la place des relations par défaut.",
+      "Default": "Utiliser la Table Intégrée par Défaut"
     }
   },
   "UI": {
