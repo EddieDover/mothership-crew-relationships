@@ -10,6 +10,12 @@
     "OnlyGMCanDelete": "Solo el DJ puede eliminar las relaciones.",
     "OnlyGMCanView": "Solo el DJ puede ver la red de relaciones."
   },
+  "SETTINGS": {
+    "CustomRollTable": {
+      "Name": "Tabla de Tiro de Relación Personalizada",
+      "Hint": "Si se establece, esta tabla de tiro se utilizará en lugar de las relaciones predeterminadas."
+    }
+  },
   "UI": {
     "Relationships": "Relaciones",
     "CrewRelationships": "Relaciones de la Tripulación",

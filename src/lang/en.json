@@ -10,6 +10,12 @@
     "OnlyGMCanDelete": "Only the GM can delete relationships.",
     "OnlyGMCanView": "Only the GM can view the relationship web."
   },
+  "SETTINGS": {
+    "CustomRollTable": {
+      "Name": "Custom Relationship Roll Table",
+      "Hint": "If set, this roll table will be used instead of the default relationships."
+    }
+  },
   "UI": {
     "Relationships": "Relationships",
     "CrewRelationships": "Crew Relationships",

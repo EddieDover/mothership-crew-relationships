@@ -16,8 +16,8 @@ class CrewRelationships {
       "mothership-crew-relationships",
       "customRollTable",
       {
-        name: "Custom Relationship Roll Table",
-        hint: "If set, this roll table will be used instead of the default relationships.",
+        name: "SETTINGS.CustomRollTable.Name",
+        hint: "SETTINGS.CustomRollTable.Hint",
         scope: "world",
         config: true,
         type: String,
