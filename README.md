@@ -45,12 +45,15 @@ https://github.com/EddieDover/mothership-crew-relationships/releases/latest/down
 
 #### Custom Roll Tables
 
-To create a compatible nested rolltable configuration, do the following:
+To create a set of roll-tables refer to the [Foundry VTT Documentation](https://foundryvtt.com/article/roll-tables/#nesting).
 
-1. Create 1 roll table per sub-category of your planned, primary, relationships roll-table.
-2. Create items inside each of the sub-category roll-tables. The module will look for item description first, and then fall back to item name if it is not set.
-3. Create a primary relationships roll table. Inside of which, create one item per sub-category. Change the name of the item to the sub-category name, and change the Result Type to Document. Then drag the sub-category roll table onto the provided field.
-4. Select the primary roll table from the dropdown selection in the module options.
+1. Create a rollable table for each category you want such as "Positive", "Negative", or "Rivals"
+2. Within that table, create new items for each of the outcomes. For instance, if they are close, this might be "One reminds the other of a lost friend or family member." or "They both witnessed something they shouldn't have."
+   1. Each of these items should have a description of the relationship. Try to keep this a short descriptive sentence.
+   2. If no description is set, the name of the item is used.
+3. Once you have all of your relationship tables built, create one more rollable table to link them together. Drag the tables you have created into the list of this primary table.
+   1. Make sure to edit the `Roll Formula` in the `Summary` tab, to match the amount of sub-tables you have created. _If you have 6 sub-tables, it should list the roll as 1d6, etc._
+4. Open your settings, and change the custom table dropdown for `mothership-crew-relationships` to use your newly created custom table.
 
 ### For Players
 
