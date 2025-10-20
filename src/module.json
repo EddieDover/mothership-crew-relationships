@@ -29,7 +29,7 @@
       "path": "lang/fr.json"
     }
   ],
-  "version": "1.1.4",
+  "version": "1.2.0",
   "compatibility": {
     "minimum": "13",
     "verified": "13"
@@ -42,8 +42,12 @@
       "flags": {}
     }
   ],
-  "esmodules": ["scripts/crew-relationships.js"],
-  "styles": ["styles/crew-relationships.css"],
+  "esmodules": [
+    "scripts/crew-relationships.js"
+  ],
+  "styles": [
+    "styles/crew-relationships.css"
+  ],
   "relationships": {
     "systems": [
       {
