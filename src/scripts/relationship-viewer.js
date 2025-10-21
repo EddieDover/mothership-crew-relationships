@@ -10,7 +10,7 @@ export class RelationshipViewer extends HandlebarsApplicationMixin(
   static DEFAULT_OPTIONS = {
     tag: "div",
     window: {
-      title: "UI.RelationshipViewer",
+      title: "mothership-crew-relationships.UI.RelationshipViewer",
       resizable: true,
     },
     position: {
