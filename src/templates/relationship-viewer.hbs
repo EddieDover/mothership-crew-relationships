@@ -4,13 +4,17 @@
       <canvas id="relationship-canvas"></canvas>
     </div>
     <div class="relationship-legend">
-      <p><i class="fas fa-circle"></i> {{localize "UI.ViewerLegendNodes"}}</p>
-      <p><i class="fas fa-minus"></i> {{localize "UI.ViewerLegendEdges"}}</p>
+      <p><i class="fas fa-circle"></i>
+        {{localize "mothership-crew-relationships.UI.ViewerLegendNodes"}}</p>
+      <p><i class="fas fa-minus"></i>
+        {{localize "mothership-crew-relationships.UI.ViewerLegendEdges"}}</p>
     </div>
   {{else}}
     <div class="relationship-viewer-empty">
-      <p>{{localize "UI.NoCrewMembers"}}</p>
-      <p>{{localize "UI.CreateMoreCharacters"}}</p>
+      <p>{{localize "mothership-crew-relationships.UI.NoCrewMembers"}}</p>
+      <p>{{localize
+          "mothership-crew-relationships.UI.CreateMoreCharacters"
+        }}</p>
     </div>
   {{/if}}
 </div>
