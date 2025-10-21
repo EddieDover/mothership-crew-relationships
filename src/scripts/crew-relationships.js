@@ -16,14 +16,16 @@ class CrewRelationships {
       "mothership-crew-relationships",
       "customRollTable",
       {
-        name: "SETTINGS.CustomRollTable.Name",
-        hint: "SETTINGS.CustomRollTable.Hint",
+        name: "mothership-crew-relationships.SETTINGS.CustomRollTable.Name",
+        hint: "mothership-crew-relationships.SETTINGS.CustomRollTable.Hint",
         scope: "world",
         config: true,
         type: String,
         default: "",
         choices: () => {
-          const choices = { "": "SETTINGS.CustomRollTable.Default" };
+          const choices = {
+            "": "mothership-crew-relationships.SETTINGS.CustomRollTable.Default",
+          };
           game.tables.forEach((table) => {
             choices[table.id] = table.name;
           });
@@ -44,12 +46,18 @@ class CrewRelationships {
   }
 
   static async ready() {
-    console.log(game.i18n.localize("MODULE.Ready"));
+    console.log(
+      game.i18n.localize("mothership-crew-relationships.MODULE.Ready")
+    );
   }
 
   static openRelationshipViewer() {
     if (!game.user.isGM) {
-      ui.notifications.warn(game.i18n.localize("NOTIFICATIONS.OnlyGMCanView"));
+      ui.notifications.warn(
+        game.i18n.localize(
+          "mothership-crew-relationships.NOTIFICATIONS.OnlyGMCanView"
+        )
+      );
       return;
     }
     if (relationshipViewerInstance?.rendered) {
@@ -242,7 +250,9 @@ Hooks.on("getSceneControlButtons", (controls) => {
 
   const button = {
     name: "relationship-viewer",
-    title: game.i18n.localize("UI.ViewRelationships"),
+    title: game.i18n.localize(
+      "mothership-crew-relationships.UI.ViewRelationships"
+    ),
     icon: "fas fa-project-diagram",
     visible: true,
     button: true,
@@ -263,19 +273,27 @@ Hooks.on("renderMothershipActorSheet", async (app, html, data) => {
   // Add the Relationships tab to the navigation
   const tabNav = html.find("nav.sheet-tabs");
   if (!tabNav.length) {
-    console.warn(game.i18n.localize("WARNINGS.TabNavigationNotFound"));
+    console.warn(
+      game.i18n.localize(
+        "mothership-crew-relationships.WARNINGS.TabNavigationNotFound"
+      )
+    );
     return;
   }
 
   // Add new tab button
   tabNav.append(
-    `<a class="tab-select" data-tab="relationships">${game.i18n.localize("UI.Relationships")}</a>`
+    `<a class="tab-select" data-tab="relationships">${game.i18n.localize("mothership-crew-relationships.UI.Relationships")}</a>`
   );
 
   // Create the relationships tab content
   const sheetBody = html.find(".sheet-body");
   if (!sheetBody.length) {
-    console.warn(game.i18n.localize("WARNINGS.SheetBodyNotFound"));
+    console.warn(
+      game.i18n.localize(
+        "mothership-crew-relationships.WARNINGS.SheetBodyNotFound"
+      )
+    );
     return;
   }
 
@@ -294,15 +312,15 @@ Hooks.on("renderMothershipActorSheet", async (app, html, data) => {
         <div class="tab relationships-tab" data-tab="relationships" data-group="primary">
             <div class="crew-relationships-container">
                 <div class="relationships-header">
-                    <h2>${game.i18n.localize("UI.CrewRelationships")}</h2>
+                    <h2>${game.i18n.localize("mothership-crew-relationships.UI.CrewRelationships")}</h2>
                 </div>
     `;
 
   if (allRelationships.length === 0) {
     relationshipsTabHtml += `
             <div class="relationships-empty">
-                <p>${game.i18n.localize("UI.NoCrewMembers")}</p>
-                <p>${game.i18n.localize("UI.CreateMoreCharacters")}</p>
+                <p>${game.i18n.localize("mothership-crew-relationships.UI.NoCrewMembers")}</p>
+                <p>${game.i18n.localize("mothership-crew-relationships.UI.CreateMoreCharacters")}</p>
             </div>
         `;
   } else {
@@ -315,13 +333,13 @@ Hooks.on("renderMothershipActorSheet", async (app, html, data) => {
                         <div class="relationship-name">${rel.actor.name}</div>
                         <div class="relationship-description">${rel.relationship}</div>
                         <div class="relationship-buttons">
-                            <button class="roll-single-relationship" type="button" data-target-id="${rel.actor.id}" title="${game.i18n.localize("UI.ReRoll")}">
+                            <button class="roll-single-relationship" type="button" data-target-id="${rel.actor.id}" title="${game.i18n.localize("mothership-crew-relationships.UI.ReRoll")}">
                                 <i class="fas fa-dice"></i>
                             </button>
-                            <button class="edit-relationship" type="button" data-target-id="${rel.actor.id}" title="${game.i18n.localize("UI.Edit")}">
+                            <button class="edit-relationship" type="button" data-target-id="${rel.actor.id}" title="${game.i18n.localize("mothership-crew-relationships.UI.Edit")}">
                                 <i class="fas fa-edit"></i>
                             </button>
-                            <button class="delete-relationship" type="button" data-target-id="${rel.actor.id}" title="${game.i18n.localize("UI.Delete")}">
+                            <button class="delete-relationship" type="button" data-target-id="${rel.actor.id}" title="${game.i18n.localize("mothership-crew-relationships.UI.Delete")}">
                                 <i class="fas fa-trash"></i>
                             </button>
                         </div>
@@ -332,12 +350,12 @@ Hooks.on("renderMothershipActorSheet", async (app, html, data) => {
         relationshipsTabHtml += `
                     <div class="relationship-item no-relationship" data-actor-id="${rel.actor.id}">
                         <div class="relationship-name">${rel.actor.name}</div>
-                        <div class="relationship-description unrolled">${game.i18n.localize("UI.NoRelationshipEstablished")}</div>
+                        <div class="relationship-description unrolled">${game.i18n.localize("mothership-crew-relationships.UI.NoRelationshipEstablished")}</div>
                         <div class="relationship-buttons">
-                            <button class="roll-single-relationship" type="button" data-target-id="${rel.actor.id}" title="${game.i18n.localize("UI.Roll")}">
+                            <button class="roll-single-relationship" type="button" data-target-id="${rel.actor.id}" title="${game.i18n.localize("mothership-crew-relationships.UI.Roll")}">
                                 <i class="fas fa-dice"></i>
                             </button>
-                            <button class="edit-relationship"  type="button" data-target-id="${rel.actor.id}" title="${game.i18n.localize("UI.Edit")}">
+                            <button class="edit-relationship"  type="button" data-target-id="${rel.actor.id}" title="${game.i18n.localize("mothership-crew-relationships.UI.Edit")}">
                                 <i class="fas fa-edit"></i>
                             </button>
                         </div>
@@ -360,7 +378,11 @@ Hooks.on("renderMothershipActorSheet", async (app, html, data) => {
 
     // Check if user is GM
     if (!game.user.isGM) {
-      ui.notifications.warn(game.i18n.localize("NOTIFICATIONS.OnlyGMCanRoll"));
+      ui.notifications.warn(
+        game.i18n.localize(
+          "mothership-crew-relationships.NOTIFICATIONS.OnlyGMCanRoll"
+        )
+      );
       return;
     }
 
@@ -384,7 +406,11 @@ Hooks.on("renderMothershipActorSheet", async (app, html, data) => {
 
     // Check if user is GM
     if (!game.user.isGM) {
-      ui.notifications.warn(game.i18n.localize("NOTIFICATIONS.OnlyGMCanEdit"));
+      ui.notifications.warn(
+        game.i18n.localize(
+          "mothership-crew-relationships.NOTIFICATIONS.OnlyGMCanEdit"
+        )
+      );
       return;
     }
 
@@ -397,14 +423,17 @@ Hooks.on("renderMothershipActorSheet", async (app, html, data) => {
       app.actor.system.relationships?.[targetId] || "";
 
     const dialog = new Dialog({
-      title: game.i18n.format("UI.EditRelationshipTitle", {
-        actor1: app.actor.name,
-        actor2: targetActor.name,
-      }),
+      title: game.i18n.format(
+        "mothership-crew-relationships.UI.EditRelationshipTitle",
+        {
+          actor1: app.actor.name,
+          actor2: targetActor.name,
+        }
+      ),
       content: `
         <form>
           <div class="form-group">
-            <label>${game.i18n.localize("UI.RelationshipText")}:</label>
+            <label>${game.i18n.localize("mothership-crew-relationships.UI.RelationshipText")}:</label>
             <input type="text" name="relationship" value="${currentRelationship}" autofocus />
           </div>
         </form>
@@ -412,7 +441,7 @@ Hooks.on("renderMothershipActorSheet", async (app, html, data) => {
       buttons: {
         save: {
           icon: '<i class="fas fa-save"></i>',
-          label: game.i18n.localize("UI.Save"),
+          label: game.i18n.localize("mothership-crew-relationships.UI.Save"),
           callback: async (html) => {
             const newRelationship = html.find('[name="relationship"]').val();
             if (newRelationship && newRelationship.trim() !== "") {
@@ -432,7 +461,7 @@ Hooks.on("renderMothershipActorSheet", async (app, html, data) => {
         },
         cancel: {
           icon: '<i class="fas fa-times"></i>',
-          label: game.i18n.localize("UI.Cancel"),
+          label: game.i18n.localize("mothership-crew-relationships.UI.Cancel"),
         },
       },
       default: "save",
@@ -452,7 +481,9 @@ Hooks.on("renderMothershipActorSheet", async (app, html, data) => {
     // Check if user is GM
     if (!game.user.isGM) {
       ui.notifications.warn(
-        game.i18n.localize("NOTIFICATIONS.OnlyGMCanDelete")
+        game.i18n.localize(
+          "mothership-crew-relationships.NOTIFICATIONS.OnlyGMCanDelete"
+        )
       );
       return;
     }

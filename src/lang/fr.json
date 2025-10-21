@@ -1,154 +1,156 @@
 {
-  "MODULE": {
-    "Name": "Relations d'Équipage Mothership",
-    "Initializing": "Relations d'Équipage Mothership | Initialisation",
-    "Ready": "Relations d'Équipage Mothership | Prêt"
-  },
-  "NOTIFICATIONS": {
-    "OnlyGMCanRoll": "Seul le MJ peut lancer les relations.",
-    "OnlyGMCanEdit": "Seul le MJ peut modifier les relations.",
-    "OnlyGMCanDelete": "Seul le MJ peut supprimer les relations.",
-    "OnlyGMCanView": "Seul le MJ peut voir le réseau de relations."
-  },
-  "SETTINGS": {
-    "CustomRollTable": {
-      "Name": "Table de Jets de Relations Personnalisée",
-      "Hint": "Si définie, cette table de jets sera utilisée à la place des relations par défaut.",
-      "Default": "Utiliser la Table Intégrée par Défaut"
-    }
-  },
-  "UI": {
-    "Relationships": "Relations",
-    "CrewRelationships": "Relations d'Équipage",
-    "NoCrewMembers": "Aucun autre membre d'équipage trouvé.",
-    "CreateMoreCharacters": "Créez plus de personnages joueurs pour établir des relations.",
-    "NoRelationshipEstablished": "Aucune relation établie",
-    "NoRelationship": "Aucune relation",
-    "ReRoll": "Relancer",
-    "Roll": "Lancer",
-    "Edit": "Modifier",
-    "Delete": "Supprimer",
-    "Save": "Enregistrer",
-    "Cancel": "Annuler",
-    "EditRelationshipTitle": "Modifier la Relation : {actor1} & {actor2}",
-    "RelationshipText": "Relation",
-    "CategoryRoll": "Jet de Catégorie",
-    "RelationshipRoll": "Jet de Relation",
-    "RelationshipViewer": "Réseau de Relations d'Équipage",
-    "ViewRelationships": "Voir les Relations d'Équipage",
-    "ViewerLegendNodes": "Personnages - Cliquer pour ouvrir la fiche",
-    "ViewerLegendEdges": "Relations - Survoler pour voir"
-  },
-  "WARNINGS": {
-    "TabNavigationNotFound": "Relations d'Équipage : Impossible de trouver la navigation par onglets",
-    "SheetBodyNotFound": "Relations d'Équipage : Impossible de trouver le corps de la fiche"
-  },
-  "RELATIONSHIPS": {
-    "Categories": {
-      "1": "Compagnons",
-      "2": "Professionnel",
-      "3": "Romantique",
-      "4": "Obligation & Dette",
-      "5": "Rivalité",
-      "6": "Ambivalent",
-      "7": "Traumatisme Partagé",
-      "8": "Lien Improbable"
+  "mothership-crew-relationships": {
+    "MODULE": {
+      "Name": "Relations d'Équipage Mothership",
+      "Initializing": "Relations d'Équipage Mothership | Initialisation",
+      "Ready": "Relations d'Équipage Mothership | Prêt"
     },
-    "1": {
-      "0": "Ils ont traversé l'enfer ensemble auparavant.",
-      "1": "Ils sont de proches amis et confidents.",
-      "2": "Ils ont des passe-temps ou des intérêts similaires.",
-      "3": "Ils ont un code tacite de protection mutuelle.",
-      "4": "L'un essaie de corrompre l'autre.",
-      "5": "Ils se font confiance les yeux fermés.",
-      "6": "Ils servent de boussole morale l'un pour l'autre.",
-      "7": "Ils sont comme cul et chemise.",
-      "8": "L'un rappelle à l'autre un ami ou un membre de la famille perdu.",
-      "9": "Ils ont fait le pacte de retourner à la civilisation ensemble, quoi qu'il arrive."
+    "NOTIFICATIONS": {
+      "OnlyGMCanRoll": "Seul le MJ peut lancer les relations.",
+      "OnlyGMCanEdit": "Seul le MJ peut modifier les relations.",
+      "OnlyGMCanDelete": "Seul le MJ peut supprimer les relations.",
+      "OnlyGMCanView": "Seul le MJ peut voir le réseau de relations."
     },
-    "2": {
-      "0": "Ils ont servi ensemble dans la même unité ou entreprise.",
-      "1": "L'un est le mentor de l'autre.",
-      "2": "Ils couvrent les erreurs de l'autre.",
-      "3": "L'un a obtenu le poste que l'autre voulait.",
-      "4": "Ils sont des rivaux professionnels en concurrence directe.",
-      "5": "L'un est clairement meilleur au travail, et c'est un point sensible.",
-      "6": "Ils partagent des plaintes sur la direction ou la mission actuelle.",
-      "7": "Ils ont collaboré sur un projet réussi—et rentable.",
-      "8": "Leurs méthodes et philosophies s'affrontent constamment.",
-      "9": "Ils partagent un historique d'échecs communs."
+    "SETTINGS": {
+      "CustomRollTable": {
+        "Name": "Table de Jets de Relations Personnalisée",
+        "Hint": "Si définie, cette table de jets sera utilisée à la place des relations par défaut.",
+        "Default": "Utiliser la Table Intégrée par Défaut"
+      }
     },
-    "3": {
-      "0": "Ils ont une relation secrète.",
-      "1": "Ils sont en couple.",
-      "2": "Ils sont d'anciens amants, et c'est toujours gênant.",
-      "3": "Ils ont eu une mauvaise rupture dans leur passé.",
-      "4": "Il y a une attirance tacite entre eux.",
-      "5": "Ils ont un arrangement amis avec avantages.",
-      "6": "Ils sont coincés dans une dynamique 'vont-ils ou ne vont-ils pas'.",
-      "7": "Ils ont couché ensemble une fois, et c'est compliqué.",
-      "8": "L'un essaie de reconquérir l'autre.",
-      "9": "Ils essaient de garder les choses strictement professionnelles."
+    "UI": {
+      "Relationships": "Relations",
+      "CrewRelationships": "Relations d'Équipage",
+      "NoCrewMembers": "Aucun autre membre d'équipage trouvé.",
+      "CreateMoreCharacters": "Créez plus de personnages joueurs pour établir des relations.",
+      "NoRelationshipEstablished": "Aucune relation établie",
+      "NoRelationship": "Aucune relation",
+      "ReRoll": "Relancer",
+      "Roll": "Lancer",
+      "Edit": "Modifier",
+      "Delete": "Supprimer",
+      "Save": "Enregistrer",
+      "Cancel": "Annuler",
+      "EditRelationshipTitle": "Modifier la Relation : {actor1} & {actor2}",
+      "RelationshipText": "Relation",
+      "CategoryRoll": "Jet de Catégorie",
+      "RelationshipRoll": "Jet de Relation",
+      "RelationshipViewer": "Réseau de Relations d'Équipage",
+      "ViewRelationships": "Voir les Relations d'Équipage",
+      "ViewerLegendNodes": "Personnages - Cliquer pour ouvrir la fiche",
+      "ViewerLegendEdges": "Relations - Survoler pour voir"
     },
-    "4": {
-      "0": "L'un a sauvé la vie de l'autre, créant une dette de vie.",
-      "1": "L'un connaît un secret profondément compromettant sur l'autre.",
-      "2": "L'un fait chanter l'autre.",
-      "3": "Ils doivent de l'argent aux mêmes personnes ou entreprises dangereuses.",
-      "4": "L'un a payé pour l'erreur ou le crime de l'autre.",
-      "5": "Il y a une dette non résolue entre eux.",
-      "6": "Ils sont liés par une trahison passée.",
-      "7": "L'un a aidé l'autre à échapper à la loi.",
-      "8": "Ils sont pris dans le même complot.",
-      "9": "Il y a une obligation majeure tacite entre eux."
+    "WARNINGS": {
+      "TabNavigationNotFound": "Relations d'Équipage : Impossible de trouver la navigation par onglets",
+      "SheetBodyNotFound": "Relations d'Équipage : Impossible de trouver le corps de la fiche"
     },
-    "5": {
-      "0": "Ils ont un respect mutuel à contrecœur l'un pour l'autre.",
-      "1": "Ils sont des ennemis acharnés avec un historique commun.",
-      "2": "Ils sont d'anciens amis devenus rivaux.",
-      "3": "Ils sont dans une compétition amicale.",
-      "4": "L'un est un rival unilatéral, mais l'autre n'en a aucune idée.",
-      "5": "Ils veulent ce que l'autre a.",
-      "6": "Ils sont en compétition sur presque tout.",
-      "7": "Ils viennent de factions ou d'organisations opposées.",
-      "8": "Ils sont forcés de travailler ensemble malgré leur animosité.",
-      "9": "L'un blâme l'autre pour une perte personnelle."
-    },
-    "6": {
-      "0": "Ils n'ont jamais vraiment beaucoup parlé, mais sont maintenant coincés ensemble.",
-      "1": "Il y a une indifférence mutuelle entre eux.",
-      "2": "Ils fréquentent des cercles sociaux différents, même sur ce vaisseau.",
-      "3": "Ils se connaissent de nom, c'est tout.",
-      "4": "L'un évite activement l'autre.",
-      "5": "Quelque chose de non-dit les rend mal à l'aise l'un avec l'autre.",
-      "6": "Leur communication est guindée et formelle.",
-      "7": "L'un est une petite célébrité pour l'autre, mais il ne le sait pas.",
-      "8": "Ils n'ont rien en commun pour créer un lien.",
-      "9": "Ils ont l'impression de s'être déjà rencontrés, mais ne savent pas où."
-    },
-    "7": {
-      "0": "Ils sont les seuls survivants d'un désastre passé.",
-      "1": "Ils ont tous deux été témoins de quelque chose qu'ils n'auraient pas dû voir.",
-      "2": "L'un a sauvé l'autre d'un monstre horrifique.",
-      "3": "Ils ont survécu à la même expérience corporative.",
-      "4": "Ils partagent le souvenir de la mort d'un membre d'équipage.",
-      "5": "Ils faisaient tous deux partie d'une mission ratée avec un lourd bilan.",
-      "6": "Ils sont liés par une rencontre terrifiante de leur passé.",
-      "7": "Ils souffrent tous deux d'un cauchemar récurrent d'un événement partagé.",
-      "8": "L'un connaît le secret le plus honteux de l'autre.",
-      "9": "Ils fuient tous deux la même erreur du passé."
-    },
-    "8": {
-      "0": "L'un vient d'un milieu privilégié, l'autre de la pauvreté.",
-      "1": "Ce sont deux personnes très différentes qui ont trouvé un intérêt mutuel.",
-      "2": "L'un est le héros de l'autre, mais il ne le sait pas.",
-      "3": "Ils cachent tous deux un secret au reste de l'équipage.",
-      "4": "Ils se tapent constamment sur les nerfs, mais ils travaillent bien ensemble.",
-      "5": "Ils étaient rivaux, mais ont depuis gagné le respect l'un de l'autre.",
-      "6": "L'un est un vétéran blasé, l'autre une recrue naïve.",
-      "7": "Ils sont unis par un ennemi commun.",
-      "8": "Ils sont les seuls à pouvoir effectuer une tâche spécifique ensemble.",
-      "9": "L'un est le confident de l'autre pour un secret qu'ils gardent tous deux."
+    "RELATIONSHIPS": {
+      "Categories": {
+        "1": "Compagnons",
+        "2": "Professionnel",
+        "3": "Romantique",
+        "4": "Obligation & Dette",
+        "5": "Rivalité",
+        "6": "Ambivalent",
+        "7": "Traumatisme Partagé",
+        "8": "Lien Improbable"
+      },
+      "1": {
+        "0": "Ils ont traversé l'enfer ensemble auparavant.",
+        "1": "Ils sont de proches amis et confidents.",
+        "2": "Ils ont des passe-temps ou des intérêts similaires.",
+        "3": "Ils ont un code tacite de protection mutuelle.",
+        "4": "L'un essaie de corrompre l'autre.",
+        "5": "Ils se font confiance les yeux fermés.",
+        "6": "Ils servent de boussole morale l'un pour l'autre.",
+        "7": "Ils sont comme cul et chemise.",
+        "8": "L'un rappelle à l'autre un ami ou un membre de la famille perdu.",
+        "9": "Ils ont fait le pacte de retourner à la civilisation ensemble, quoi qu'il arrive."
+      },
+      "2": {
+        "0": "Ils ont servi ensemble dans la même unité ou entreprise.",
+        "1": "L'un est le mentor de l'autre.",
+        "2": "Ils couvrent les erreurs de l'autre.",
+        "3": "L'un a obtenu le poste que l'autre voulait.",
+        "4": "Ils sont des rivaux professionnels en concurrence directe.",
+        "5": "L'un est clairement meilleur au travail, et c'est un point sensible.",
+        "6": "Ils partagent des plaintes sur la direction ou la mission actuelle.",
+        "7": "Ils ont collaboré sur un projet réussi—et rentable.",
+        "8": "Leurs méthodes et philosophies s'affrontent constamment.",
+        "9": "Ils partagent un historique d'échecs communs."
+      },
+      "3": {
+        "0": "Ils ont une relation secrète.",
+        "1": "Ils sont en couple.",
+        "2": "Ils sont d'anciens amants, et c'est toujours gênant.",
+        "3": "Ils ont eu une mauvaise rupture dans leur passé.",
+        "4": "Il y a une attirance tacite entre eux.",
+        "5": "Ils ont un arrangement amis avec avantages.",
+        "6": "Ils sont coincés dans une dynamique 'vont-ils ou ne vont-ils pas'.",
+        "7": "Ils ont couché ensemble une fois, et c'est compliqué.",
+        "8": "L'un essaie de reconquérir l'autre.",
+        "9": "Ils essaient de garder les choses strictement professionnelles."
+      },
+      "4": {
+        "0": "L'un a sauvé la vie de l'autre, créant une dette de vie.",
+        "1": "L'un connaît un secret profondément compromettant sur l'autre.",
+        "2": "L'un fait chanter l'autre.",
+        "3": "Ils doivent de l'argent aux mêmes personnes ou entreprises dangereuses.",
+        "4": "L'un a payé pour l'erreur ou le crime de l'autre.",
+        "5": "Il y a une dette non résolue entre eux.",
+        "6": "Ils sont liés par une trahison passée.",
+        "7": "L'un a aidé l'autre à échapper à la loi.",
+        "8": "Ils sont pris dans le même complot.",
+        "9": "Il y a une obligation majeure tacite entre eux."
+      },
+      "5": {
+        "0": "Ils ont un respect mutuel à contrecœur l'un pour l'autre.",
+        "1": "Ils sont des ennemis acharnés avec un historique commun.",
+        "2": "Ils sont d'anciens amis devenus rivaux.",
+        "3": "Ils sont dans une compétition amicale.",
+        "4": "L'un est un rival unilatéral, mais l'autre n'en a aucune idée.",
+        "5": "Ils veulent ce que l'autre a.",
+        "6": "Ils sont en compétition sur presque tout.",
+        "7": "Ils viennent de factions ou d'organisations opposées.",
+        "8": "Ils sont forcés de travailler ensemble malgré leur animosité.",
+        "9": "L'un blâme l'autre pour une perte personnelle."
+      },
+      "6": {
+        "0": "Ils n'ont jamais vraiment beaucoup parlé, mais sont maintenant coincés ensemble.",
+        "1": "Il y a une indifférence mutuelle entre eux.",
+        "2": "Ils fréquentent des cercles sociaux différents, même sur ce vaisseau.",
+        "3": "Ils se connaissent de nom, c'est tout.",
+        "4": "L'un évite activement l'autre.",
+        "5": "Quelque chose de non-dit les rend mal à l'aise l'un avec l'autre.",
+        "6": "Leur communication est guindée et formelle.",
+        "7": "L'un est une petite célébrité pour l'autre, mais il ne le sait pas.",
+        "8": "Ils n'ont rien en commun pour créer un lien.",
+        "9": "Ils ont l'impression de s'être déjà rencontrés, mais ne savent pas où."
+      },
+      "7": {
+        "0": "Ils sont les seuls survivants d'un désastre passé.",
+        "1": "Ils ont tous deux été témoins de quelque chose qu'ils n'auraient pas dû voir.",
+        "2": "L'un a sauvé l'autre d'un monstre horrifique.",
+        "3": "Ils ont survécu à la même expérience corporative.",
+        "4": "Ils partagent le souvenir de la mort d'un membre d'équipage.",
+        "5": "Ils faisaient tous deux partie d'une mission ratée avec un lourd bilan.",
+        "6": "Ils sont liés par une rencontre terrifiante de leur passé.",
+        "7": "Ils souffrent tous deux d'un cauchemar récurrent d'un événement partagé.",
+        "8": "L'un connaît le secret le plus honteux de l'autre.",
+        "9": "Ils fuient tous deux la même erreur du passé."
+      },
+      "8": {
+        "0": "L'un vient d'un milieu privilégié, l'autre de la pauvreté.",
+        "1": "Ce sont deux personnes très différentes qui ont trouvé un intérêt mutuel.",
+        "2": "L'un est le héros de l'autre, mais il ne le sait pas.",
+        "3": "Ils cachent tous deux un secret au reste de l'équipage.",
+        "4": "Ils se tapent constamment sur les nerfs, mais ils travaillent bien ensemble.",
+        "5": "Ils étaient rivaux, mais ont depuis gagné le respect l'un de l'autre.",
+        "6": "L'un est un vétéran blasé, l'autre une recrue naïve.",
+        "7": "Ils sont unis par un ennemi commun.",
+        "8": "Ils sont les seuls à pouvoir effectuer une tâche spécifique ensemble.",
+        "9": "L'un est le confident de l'autre pour un secret qu'ils gardent tous deux."
+      }
     }
   }
 }
