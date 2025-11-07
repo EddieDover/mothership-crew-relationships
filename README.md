@@ -23,7 +23,7 @@ A Foundry VTT module that adds a crew relationships system to Mothership charact
 
 1. In Foundry VTT, go to the Add-on Modules tab
 2. Click "Install Module"
-3. <s>Search for "Mothership Crew Relationships"</s> (coming soon!) or paste the manifest URL
+3. Search for "Mothership Crew Relationships" in Foundry or paste the manifest URL
 4. Click Install
 
 ### Manifest URL
@@ -37,6 +37,8 @@ https://github.com/EddieDover/mothership-crew-relationships/releases/latest/down
 ### For GMs
 
 **Rolling Individual Relationships:**
+
+_Please note that relationships can only be assigned to characters who are actively assigned to players._
 
 1. Open a player character sheet
 2. Navigate to the "Relationships" tab
