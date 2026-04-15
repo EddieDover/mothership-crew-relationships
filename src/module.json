@@ -6,7 +6,7 @@
   "bugs": "https://github.com/EddieDover/mothership-crew-relationships/issues",
   "changelog": "https://github.com/EddieDover/mothership-crew-relationships/releases",
   "manifest": "https://github.com/EddieDover/mothership-crew-relationships/releases/latest/download/module.json",
-  "download": "https://github.com/EddieDover/mothership-crew-relationships/releases/latest/download/module.zip",
+  "download": "https://github.com/EddieDover/mothership-crew-relationships/releases/download/v1.2.1/module.zip",
   "license": "https://github.com/EddieDover/mothership-crew-relationships/raw/main/LICENSE",
   "readme": "https://github.com/EddieDover/mothership-crew-relationships/raw/main/README.md",
   "flags": {
@@ -29,7 +29,7 @@
       "path": "lang/fr.json"
     }
   ],
-  "version": "1.2.0",
+  "version": "1.2.1",
   "compatibility": {
     "minimum": "13",
     "verified": "13"
