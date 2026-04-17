@@ -1,13 +1,19 @@
+## [1.2.1](https://github.com/EddieDover/mothership-crew-relationships/compare/v1.2.0...v1.2.1) (2026-04-15)
+
+- Updated versioning to fix re-download bug with Foundry Auto-Update
+
+### Documentation
+
+- updated README to clarify GM instructions and installation steps ([6912a82](https://github.com/EddieDover/mothership-crew-relationships/commit/6912a82599cd5d4695c78f7f15192a08984c583d))
 
 ## [1.2.0](https://github.com/EddieDover/mothership-crew-relationships/compare/v1.1.4...v1.2.0) (2025-10-20)
 
-
 ### Features
 
-* added custom roll table support ([0c34dd1](https://github.com/EddieDover/mothership-crew-relationships/commit/0c34dd149a8ec8927cc38d7ae8cbe4fa30654621))
-* added dropdown settings for custom roll table selection ([576f6d5](https://github.com/EddieDover/mothership-crew-relationships/commit/576f6d52909f74b08b9be9578a6b37893399d75e))
-* added french localization ([6f14f09](https://github.com/EddieDover/mothership-crew-relationships/commit/6f14f09fb9265f83fee554b7ec7337d84a545519))
-* added mothership-fr support ([bfdc890](https://github.com/EddieDover/mothership-crew-relationships/commit/bfdc8909c5471089ad5a161c7770df5303828922))
+- added custom roll table support ([0c34dd1](https://github.com/EddieDover/mothership-crew-relationships/commit/0c34dd149a8ec8927cc38d7ae8cbe4fa30654621))
+- added dropdown settings for custom roll table selection ([576f6d5](https://github.com/EddieDover/mothership-crew-relationships/commit/576f6d52909f74b08b9be9578a6b37893399d75e))
+- added french localization ([6f14f09](https://github.com/EddieDover/mothership-crew-relationships/commit/6f14f09fb9265f83fee554b7ec7337d84a545519))
+- added mothership-fr support ([bfdc890](https://github.com/EddieDover/mothership-crew-relationships/commit/bfdc8909c5471089ad5a161c7770df5303828922))
 
 ## [1.1.4](https://github.com/EddieDover/mothership-crew-relationships/compare/v1.1.3...v1.1.4) (2025-10-11)
 

@@ -1,5 +1,47 @@
 {
   "header": "",
+  "types": [
+    {
+      "type": "feat",
+      "section": "Features"
+    },
+    {
+      "type": "fix",
+      "section": "Bug Fixes"
+    },
+    {
+      "type": "bug",
+      "section": "Bugs Fixes"
+    },
+    {
+      "type": "chore",
+      "hidden": true
+    },
+    {
+      "type": "docs",
+      "section": "Documentation"
+    },
+    {
+      "type": "doc",
+      "section": "Documentation"
+    },
+    {
+      "type": "style",
+      "hidden": true
+    },
+    {
+      "type": "refactor",
+      "hidden": true
+    },
+    {
+      "type": "perf",
+      "hidden": true
+    },
+    {
+      "type": "test",
+      "hidden": true
+    }
+  ],
   "bumpFiles": [
     {
       "filename": "package.json",
@@ -8,6 +50,10 @@
     {
       "filename": "src/module.json",
       "type": "json"
+    },
+    {
+      "filename": "src/module.json",
+      "updater": "scripts/bump-download.cjs"
     }
   ]
 }

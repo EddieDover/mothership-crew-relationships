@@ -1,7 +1,7 @@
 {
   "name": "mothership-crew-relationships",
   "private": true,
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Adds a crew relationship system to Mothership characters",
   "homepage": "https://github.com/EddieDover/mothership-crew-relationships#readme",
   "url": "https://github.com/EddieDover/mothership-crew-relationships",
